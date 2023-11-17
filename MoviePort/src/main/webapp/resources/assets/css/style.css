@@ -4,6 +4,13 @@
 * Author URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */
+
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -737,6 +744,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     background: black; }
 
 .gsap-reveal-hero {
+ 
+  font-family: 'IBMPlexSansKR-Regular';
   line-height: 0; }
   .gsap-reveal-hero .reveal-wrap {
     position: relative;
