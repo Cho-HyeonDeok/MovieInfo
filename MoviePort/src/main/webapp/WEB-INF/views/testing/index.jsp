@@ -13,9 +13,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="../resources/assets/movieIcon.png">
-  <!--아이콘 출처 
-  <a href="https://www.flaticon.com/kr/free-icons/" title="영화 아이콘">영화 아이콘  제작자: Good Ware - Flaticon</a> -->
+  <link rel="shortcut icon" href="../resources/assets/favicon.png">
 
   <meta name="description" content="" />
   <meta name="keywords" content="" />
@@ -33,7 +31,7 @@
   <link rel="stylesheet" href="../resources/assets/css/aos.css">
   <link rel="stylesheet" href="../resources/assets/css/style.css">
 
-  <title>MoviePort</title>
+  <title>Minimal Free HTML Template by Untree.co</title>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
@@ -57,19 +55,11 @@
   <nav class="site-nav dark mb-5 site-navbar-target">
     <div class="container">
       <div class="site-navigation">
-        <a href="/main" class="logo m-0">MoviePort<span class="text-primary">.</span></a>
-        
-        <div class="site-navigation-login">
-        <span><a href="/member/login">Login&nbsp</a>/
-		<a href="/member/join">Join</a></span>
-		</div>
-		
+        <a href="index.jsp" class="logo m-0">Minimal<span class="text-primary">.</span></a>
+
         <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
-     		
-          <li><a href="#home-section" class="nav-link active">Main</a></li>
-          <li><a href="/member/login">login</a></li>
-			<li><a href="/member/join">join</a></li>
-          <li><a href="#portfolio-section" class="nav-link">MyPage</a></li>
+          <li><a href="#home-section" class="nav-link active">Home</a></li>
+          <li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
           <li class="has-children">
             <a href="#about-section" class="nav-link">About</a>
             <ul class="dropdown">
@@ -104,11 +94,11 @@
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-md-7">
-          <h1 class="heading gsap-reveal-hero mb-3"><strong>MoviePort<span class="text-primary">.</span></strong></h1>
+          <h1 class="heading gsap-reveal-hero mb-3"><strong>Minimal<span class="text-primary">.</span> Portfolio</strong></h1>
           <h2 class="subheading gsap-reveal-hero mb-4">
-            All of Reviews in here</strong>.
+            A minimal, clean, and AJAX driven free portfolio template created by the fine folks at <strong>Untree.co</strong>. Read our <a href="https://untree.co/license" target="_blank">template license</a> here.
           </h2>
-          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">장르 헤더 넣어야함 살려주세요</a></p>    
+          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">More free templates here</a></p>    
         </div>
       </div>
       
@@ -126,37 +116,21 @@
       <div class="portfolio-wrapper">
 
         <div id="posts" class="row">
-    
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="portfolio-single-1.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
                 <div class="portfolio-item-content">
-                  <h3>Call of Bidulgi</h3>
-                  <p>Action, Comic</p>
+                  <h3>Obsessed Book</h3>
+                  <p>web, branding</p>
                 </div>
               </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
-            </a>
-          </div>
-          
-
-          
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
-            <a href="portfolio-single-1.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-              <div class="overlay">
-                <span class="wrap-icon icon-link2"></span>
-                <div class="portfolio-item-content">
-                  <h3>Call of Bidulgi</h3>
-                  <p>Action, Comic</p>
-                </div>
-              </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
+              <img src="../resources/assets/images/img_1.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="portfolio-single-2.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -165,13 +139,64 @@
                   <p>illustration, application</p>
                 </div>
               </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
+              <img src="../resources/assets/images/img_2.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
 
-       
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Fresh Fruits</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_3.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Powerful Speaker</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_4.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Wireless Headset</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_5.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-1.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Black & White Cubic</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_6.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="portfolio-single-2.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -180,26 +205,87 @@
                   <p>illustration, application</p>
                 </div>
               </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
+              <img src="../resources/assets/images/img_7.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
-          
-          
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
-            <a href="portfolio-single-2.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
                 <div class="portfolio-item-content">
-                  <h3>Nike Shoe</h3>
-                  <p>illustration, application</p>
+                  <h3>Old Typewriter</h3>
+                  <p>web, branding</p>
                 </div>
               </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
+              <img src="../resources/assets/images/img_8.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
-      
 
-     
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Walking Man</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_9.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Progress Journal</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_10.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>The Dog</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_11.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Beautiful Woman</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_12.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="portfolio-single-3.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
+              <div class="overlay">
+                <span class="wrap-icon icon-link2"></span>
+                <div class="portfolio-item-content">
+                  <h3>Book Binding</h3>
+                  <p>web, branding</p>
+                </div>
+              </div>
+              <img src="../resources/assets/images/img_2.jpg" class="lazyload  img-fluid" alt="Images" />
+            </a>
+          </div>
 
 
         </div>
@@ -212,6 +298,36 @@
     </div>
 
 
+    <div class="untree_co-section pb-0" id="about-section">
+      <div class="container">
+        <div class="row justify-content-center mb-3">
+          <div class="col-lg-7 mx-auto text-center author-wrap">
+            <img src="../resources/assets/images/person_1.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
+            <h3 class="text-black h5 font-weight-bold mb-2 gsap-reveal-hero">James Williardson</h3>
+            <p class="gsap-reveal-hero">Product Designer and Developer</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-7">
+
+
+            <p class="gsap-reveal-hero">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+            <p class="gsap-reveal-hero">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+
+            <p class="gsap-reveal-hero">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+
+            <p class="gsap-reveal-hero">The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+
+            <p class="gsap-reveal-hero mb-5">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+
+
+            <p class="gsap-reveal-hero text-center"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">Hire Me at Untree.co</a></p>    
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="untree_co-section pb-0" id="services-section">
