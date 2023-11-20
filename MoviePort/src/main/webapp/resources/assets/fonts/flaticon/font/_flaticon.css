@@ -9,10 +9,21 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("./Flaticon.svg#Flaticon") format("svg"); } }
+    src: url("./Flaticon.svg#Flaticon") format("svg"); }
+    @font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');}
+     }
+
 
 .fi:before {
   display: inline-block;

@@ -59,6 +59,14 @@ public class BoardController {
 	}
 	
 
+	@GetMapping("/join2")
+	public void goJoin2(){
+		log.info("게시판 진입");
+		
+	}
+	
+
+
 	
 	
 }
