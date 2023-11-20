@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 import com.movieport.model.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,6 +30,7 @@ public class MemberMapperTests {
 //	}
 	
 	// 아이디 중복검사
+
 //	@Test
 //	public void memberIdChk() throws Exception {
 //		String id = "abc";	// 존재하는 아이디
@@ -52,4 +54,15 @@ public class MemberMapperTests {
 		
 		memberMapper.memberLogin(member);
 	}
+
+	@Test
+	public void memberIdChk() throws Exception {
+		String id = "abc";	// 존재하는 아이디
+		String id2 = "test123";	// 존재하지 않는 아이디
+		memberMapper.idCheck(id);
+		memberMapper.idCheck(id2);
+	}
+	
+	
+
 }
