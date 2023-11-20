@@ -133,40 +133,44 @@
       <div class="container">
        
 
-        <div class="row">
-          <div class="col-lg-6">
+        <div class="row justify-content-center text-center">
+          <div class="col-4 col-sm-4 col-md-4 col-lg-6">
             <form action="#">
               <div class="row">
-                <div class="col-lg-12 form-group">
+                <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="Id">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 form-group">
                   <input type="text" class="form-control" placeholder="Password">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="Password Check">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="Name">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="NickName">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="PhoneNumber">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="Email">
                 </div>
-                 <div class="col-lg-12 form-group">
+                 <div class="col-12 form-group">
                   <input type="text" class="form-control" placeholder="Email Check">
                 </div>
                
               </div>
             
               <div class="row">
-                <div class="col-12 form-group">
-                  <input type="submit" class="btn btn-black" value="Sign Up">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-6 form-group">
+                  <input type="submit" id="join-btn" class="btn btn-black" value="Sign Up">
+                 
+                </div>
+                 <div class="col-3 col-sm-3 col-md-3 col-lg-6 form-group">
+                   <input type="submit" id="join-btn" class="btn btn-black" value="Cancel">
                 </div>
               </div>
             </form>
@@ -188,8 +192,6 @@
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
               </ul>
             </div> <!-- /.widget -->
           </div> <!-- /.col-lg-3 -->
@@ -200,7 +202,6 @@
               <ul class="list-unstyled float-left links">
                 <li><a href="#">HTML5</a></li>
                 <li><a href="#">CSS3</a></li>
-                <li><a href="#">Untree.co</a></li>
                 <li><a href="#">Free Templates</a></li>
                 <li><a href="#">WordPress Themes</a></li>
               </ul>
@@ -214,7 +215,6 @@
                 <li><a href="#">Untree.co</a></li>
                 <li><a href="#">jQuery</a></li>
                 <li><a href="#">Bootstrap</a></li>
-                <li><a href="#">Freebies</a></li>
               </ul>
             </div> <!-- /.widget -->
           </div> <!-- /.col-lg-3 -->
@@ -225,8 +225,7 @@
               <h3>Contact</h3>
               <address>43 Raymouth Rd. Baltemoer, London 3910</address>
               <ul class="list-unstyled links mb-4">
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+
                 <li><a href="mailto:info@mydomain.com">info@mydomain.com</a></li>
               </ul>
 

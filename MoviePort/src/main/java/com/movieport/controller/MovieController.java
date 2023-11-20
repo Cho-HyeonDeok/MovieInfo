@@ -15,4 +15,10 @@ public class MovieController {
 		log.info("메인 페이지 진입");
 	}
 	
+	//디자인 페이지 이동용 임의의 매핑
+	//훗날 삭제 예정
+	@GetMapping("/main2")
+	public void mainPageGet2() {
+		log.info("메인 페이지 진입");
+	}
 }
