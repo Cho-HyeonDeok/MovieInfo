@@ -1,0 +1,92 @@
+drop table member;
+--회원 테이블 생성
+create table member(
+    id varchar2(40) primary key,    --회원아이디
+    pwd varchar2(60),               --회원비밀번호
+    name varchar2(40),              --회원성명
+    nickname varchar2(60),          --회원닉네임
+    phone char(13),                 --휴대폰번호
+    email varchar2(60),             --이메일
+    image varchar2(500),            --프로필사진
+    indate date default sysdate,    --가입일
+    admin char(1) default '0',      --관리자권한(0:일반회원,1:관리자)
+    block char(1) default '0'       --차단유무(0:클린,1:차단)
+);
+
+--일반회원 추가(테스트용)
+insert into member(id,pwd,name,nickname,phone,email) values('abc','1234','홍길동','hong','010-1111-2222','test@naver.com');
+--관리자 추가(테스트용)
+insert into member (id,pwd,name,admin) values('admin','admin','관리자','1');
+
+select * from member;
+
+commit;
+
+
+
+drop table movie;
+--영화정보 테이블 생성
+create table movie(
+    m_code varchar2(20) primary key,    --영화코드
+    title varchar2(100),                --영화제목
+    runtime number(10),                 --상영시간
+    thumb varchar2(500),                --썸네일
+    content varchar2(1000),             --줄거리
+    totalrate number(2,1),              --총평점
+    likes number(30),                   --좋아요수
+    hits number(30),                    --조회수
+    showdate date,                      --상영일
+    type char(1) default '1',           --영화상영구분(0:예정작,1:상영중,2:상영종료)
+    trailer varchar2(500),              --트레일러
+    ranking number(3)                   --영화랭킹
+);
+
+select * from movie;
+
+commit;
+
+
+drop table category;
+--카테고리 테이블 생성
+create table category(
+    c_code varchar2(20) primary key,                    --카테고리코드
+    m_code varchar2(20) references movie(m_code),       --영화코드(movie테이블의 기본키인 m_code)
+    c_name varchar2(40),                                --카테고리이름
+    nation char(1)                                      --국가구분(0:국내,1:국외)
+);
+
+select * from category;
+
+commit;
+
+
+
+drop table review;
+--영화리뷰 테이블 생성
+create table review(
+    r_num number generated as identity (start with 1) primary key,    --리뷰번호(자동증가)
+    id varchar2(40) references member(id),                            --회원아이디(member테이블의 기본키인 id)
+    m_code varchar2(20) references movie(m_code),                     --영화코드(movie테이블의 기본키인 m_code)
+    comments varchar2(1000),                                          --리뷰내용
+    rate number(2,1),                                                 --평점
+    blind char(1),                                                    --리뷰블라인드유무(0:블라인드X,1:블라인드O)
+    spoiler char(1)                                                   --스포일러여부(0:스포일러X,1:스포일러O)
+);
+
+select * from review;
+
+commit;
+
+
+
+drop table likes;
+--좋아요 테이블 생성
+create table likes(
+    l_num number generated as identity (start with 1) primary key,  --좋아요번호(자동증가)
+    id varchar2(40) references member(id),                          --회원아이디(member테이블의 기본키인 id)
+    m_code varchar2(20) references movie(m_code)                    --영화코드(movie테이블의 기본키인 m_code)
+);
+
+select * from likes;
+
+commit;
