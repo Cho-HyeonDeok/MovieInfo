@@ -1,3 +1,8 @@
+
+css나 이미지 저장용 폴더입니다.
+이미지 파일은 이쪽에 다 저장할 예정입니다.
+
+
 Template Name: Minimal
 Template Author: Untree.co
 Template License: https://creativecommons.org/licenses/by/3.0/
