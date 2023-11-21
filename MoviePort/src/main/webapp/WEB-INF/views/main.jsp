@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- /*
 * Template Name: Minimal
 * Template Author: Untree.co
@@ -59,10 +60,19 @@
       <div class="site-navigation">
         <a href="/main" class="logo m-0">MoviePort<span class="text-primary">.</span></a>
         
+        <c:if test="${member == null }"> <!-- 로그인 안했을때 -->
         <div class="site-navigation-login">
         <span><a href="/member/login">Login&nbsp</a>/
 		<a href="/member/join">Join</a></span>
 		</div>
+		</c:if>
+		
+		<c:if test="${member != null }"> <!-- 로그인 했을때 -->
+		<div class="login_success_area">
+			<span>닉네임 : ${member.nickname }</span>/
+			<a href="/member/logout.do">Logout</a>
+		</div>
+		</c:if>	
 		
         <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
      		
