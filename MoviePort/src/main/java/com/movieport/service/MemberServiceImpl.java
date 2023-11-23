@@ -37,6 +37,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.findIdCheck(member);
 	}
 	
+
 	// 아이디 찾기 결과
 	@Override
 	public MemberVO findId(MemberVO member) throws Exception {
@@ -54,4 +55,5 @@ public class MemberServiceImpl implements MemberService {
 	public void findPwd(MemberVO member) throws Exception {
 		memberMapper.findPwd(member);
 	}
+
 }
