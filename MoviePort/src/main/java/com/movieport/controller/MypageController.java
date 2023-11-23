@@ -53,13 +53,6 @@ public class MypageController {
 		log.info("입력한 휴대폰번호 : " + phone);
 		log.info("입력한 이메일 : " + email);
 
-		if (pwd == "" || nickname == "" || phone == "" || email == "") { // 입력한 정보가 빈칸인 경우
-			log.info("수정 실패");
-			model.addAttribute("msg", "회원정보 수정에 실패하였습니다.\\n올바른 정보를 입력해 주세요.");
-			model.addAttribute("info", mypageService.memberInfo(member.getId()));
-			return "/mypage/mypageMain";
-		}
-
 		// 기존 비밀번호 -> 새로운 비밀번호로 변경
 		String rawPwd = ""; // 인코딩 전 비밀번호
 		String encodePwd = ""; // 인코딩 후 비밀번호

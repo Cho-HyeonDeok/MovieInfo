@@ -79,13 +79,53 @@
 
 		/* 수정하기 버튼 클릭 메서드 */
 		$("#update_button").click(function() {
-			/* 회원정보 수정 동의여부 */
-			if (confirm("회원정보를 수정하시겠습니까?")) {
-				/* 회원정보 수정 메서드 서버 요청 */
-				$("#myInfo").attr("action", "/mypage/myInfoUpdate");
-				$("#myInfo").submit();
+			/* 입력한 변수 */
+			var pwd = $("#pwd").val();
+			var nickname = $("#nickname").val();
+			var phone = $("#phone").val();
+			var email = $("#email").val();
+			
+			/* 입력 이메일 형식 유효성 검사 */
+			function mailFormCheck(email) {
+				var form = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+				return form.test(email);
+			}
+			
+			/* 입력 휴대폰 번호 형식 유효성 검사 */
+			function phoneFormCheck(phone) {
+				var phoneRule = /^010-[0-9]{4}-[0-9]{4}$/;
+				return phoneRule.test(phone);
+			}
+			
+			/* 유효성 검사 */
+			if (pwd == "") {
+				alert("비밀번호를 입력하세요.");
+				return false;
+			} else if (nickname == "") {
+				alert("닉네임을 입력하세요.");
+				return false;
+			} else if (phone == "") {
+				alert("휴대폰 번호를 입력하세요.");
+				return false;
+			} else if (!phoneFormCheck(phone)) {
+				alert("올바르지 못한 휴대폰 번호 형식입니다.");
+				return false;
+			} else if (email == "") {
+				alert("이메일을 입력하세요.");
+				return false;
+			} else if (!mailFormCheck(email)) {
+				alert("올바르지 못한 이메일 형식입니다.");
+				return false;
 			} else {
-				document.location = '/mypage/mypageMain';
+				/* 회원정보 수정 동의여부 */
+				if (confirm("회원정보를 수정하시겠습니까?")) {
+					/* 회원정보 수정 메서드 서버 요청 */
+					$("#myInfo").attr("action", "/mypage/myInfoUpdate");
+					$("#myInfo").submit();
+				} else {
+					document.location = '/mypage/mypageMain';
+				}
+				return true;
 			}
 		});
 	</script>

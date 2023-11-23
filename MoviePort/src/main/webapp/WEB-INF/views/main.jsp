@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
 <body>
 	<h1>메인페이지</h1>
 	<ul>
-
 		<c:if test="${member == null }">
 			<!-- 로그인 안했을때 -->
 			<li><a href="/member/login">로그인</a></li>
@@ -34,7 +32,6 @@
 			alert(msg);
 		}
 	</script>
-
 </body>
 </html>
 

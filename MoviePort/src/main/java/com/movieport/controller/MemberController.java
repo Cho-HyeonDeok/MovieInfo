@@ -2,16 +2,9 @@ package com.movieport.controller;
 
 import java.util.Random;
 
-
-import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,12 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import com.movieport.model.MemberVO;
 import com.movieport.service.MemberService;
@@ -77,7 +68,6 @@ public class MemberController {
 	public void loginGET() {
 		log.info("로그인 페이지 이동");
 	}
-
 
 	// 아이디 중복 검사
 	@PostMapping("/memberIdChk")
@@ -131,7 +121,6 @@ public class MemberController {
 		return num;
 	}
 
-
 	// 로그인
 	@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception {
@@ -149,14 +138,12 @@ public class MemberController {
 			System.out.println(rawPw + "====>" + encodePw);
 
 			if (true == pwEncoder.matches(rawPw, encodePw)) { // 비밀번호가 일치하는지 판단
-
 				lvo.setPwd("");
 				session.setAttribute("member", lvo); // session에 사용자 정보 저장
 				return "redirect:/main";
 			} else {
 				rttr.addFlashAttribute("result", 0);
 				return "redirect:/member/login";
-
 			}
 		} else { // 일치하는 아이디가 존재하지 않을 시(로그인 실패처리)
 			rttr.addFlashAttribute("result", 0);
@@ -167,7 +154,6 @@ public class MemberController {
 
 	// 메인페이지 로그아웃
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
-
 	public String logoutMainGET(HttpServletRequest request) throws Exception {
 		log.info("logoutMainGET메서드 진입");
 		HttpSession session = request.getSession();
@@ -236,6 +222,7 @@ public class MemberController {
 			member.setPwd(encodePwd); // 인코딩된 임시 비밀번호 member 객체에 다시 저장
 			log.info("인코딩 후 새로운 임시 비밀번호 : " + member.getPwd());
 
+			model.addAttribute("email", member.getEmail());
 			memberService.findPwd(member);
 
 			// 이메일 보내기
@@ -266,6 +253,5 @@ public class MemberController {
 	public void findPwdViewGET() {
 		log.info("비밀번호 찾기 결과 페이지 진입");
 	}
-
 
 }

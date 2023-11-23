@@ -12,7 +12,6 @@ public interface MemberService {
 	// 로그인
 	public MemberVO memberLogin(MemberVO member) throws Exception;
 
-
 	// 아이디 찾기
 	public int findIdCheck(MemberVO member) throws Exception;
 

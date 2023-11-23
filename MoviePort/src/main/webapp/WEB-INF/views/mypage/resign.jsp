@@ -50,6 +50,7 @@
 				return form.test(email);
 			}
 
+			/* 유효성 검사 */
 			if (email == "") {
 				alert("이메일을 입력하세요.");
 				return false;
