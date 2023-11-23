@@ -14,5 +14,5 @@ public class MovieController {
 	public void mainPageGet() {
 		log.info("메인 페이지 진입");
 	}
-	
+
 }
