@@ -1,8 +1,100 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+
+
+#h_H{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;	
+	
+	
+}
 
 
 
+
+.h_menu{
+	border: 1px solid black;
+	height: 60px;
+	padding-top: 15px;
+	margin-top: 60px;
+	box-shadow: 5px 5px;
+	list-style: none;
+	 text-align: center;
+	 font-family:'IBMPlexSansKR-Regular';
+	 font-size: 14pt;
+	
+	
+}
+
+
+#bidulgi{
+	color: black;
+	float: left;
+	padding-left: 5%;
+	padding-right: 5%;
+	
+	
+}
+
+
+  .menu_pan {
+    width: 98%;
+    background: #fff;
+    position: absolute;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    margin-left: auto;
+    margin-right: auto;
+    top:100%;
+    z-index: 10;
+    font-family:'IBMPlexSansKR-Regular';
+    padding-left: 180px;
+    font-size: 15px;
+    box-shadow: 5px 5px;
+    block : none;
+ 
+
+    
+    
+  
+}
+.menu_category {
+    float: left;
+    
+  
+ 
+}
+
+.category {
+    
+    color: #000000;
+    paddng-left: 10px;
+    padding-right: 10px;
+    
+   
+    
+    
+    
+}
+.category:hover {
+    text-decoration: underline;
+  
+   
+}
+
+
+
+
+
+<!--헤더 끝-->
 
 
 #incorrect {
@@ -14,7 +106,7 @@
 
 /* 유효성 검사 문구 */
 #final_id_ck {
-	display: none;
+	display: visible;
 }
 
 #final_pw_ck {
@@ -22,7 +114,7 @@
 }
 
 #final_pwck_ck {
-	display: none;
+	display: visible;
 }
 
 #final_name_ck {
@@ -37,13 +129,15 @@
 	display: none;
 }
 
+
+
 #final_mail_ck {
 	display: none;
 }
 
 /* 비밀번호 확인 일치 유효성검사 */
 #pwck_input_re_1 {
-	color: green;
+	color: #327ad1;
 	display: none;
 }
 
@@ -65,7 +159,7 @@
 
 /* 중복아이디 존재하지 않는경우 */
 #id_input_re_1 {
-	color: green;
+	color: #327ad1;
 	display: none;
 }
 /* 중복아이디 존재하는 경우 */

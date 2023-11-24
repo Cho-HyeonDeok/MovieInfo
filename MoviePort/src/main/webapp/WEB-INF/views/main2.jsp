@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../resources/assets/css/style.css">
 
   <title>MoviePort</title>
+  <link rel="stylesheet" href="/resources/css/member/join.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
@@ -113,17 +114,80 @@
   <div class="untree_co-section pb-0" id="home-section">
     <div class="container">
       <div class="row justify-content-center text-center">
-        <div class="col-md-7">
+        <div class="col-md-7 col-lg-10">
           <h1 class="heading gsap-reveal-hero mb-3"><strong>MoviePort<span class="text-primary">.</span></strong></h1>
           <h2 class="subheading gsap-reveal-hero mb-4">
-            All of Reviews in here</strong>.
+            All of Reviews in here.
           </h2>
-          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">장르 헤더 넣어야함 살려주세요</a></p>    
+          
+          
+         
         </div>
       </div>
       
-    </div>
-  </div>
+   	 </div>
+ 	 </div>
+ 	 
+ 	 <div id="h_H" class="col-md-7 col-lg-10">
+ 	  <div class="h_L">
+          <ul class="h_menu">
+          
+	          <li><a href="/movieInfo/" id="bidulgi">액션</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">로맨스</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">코미디</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">스릴러</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">호러</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">SF</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">애니메이션</a></li>
+	          <li class="bar"></li>
+          </ul>
+			
+	      </div>
+		
+			
+		  <div class="menu_pan">
+		  	<div class="w_1350">
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  
+		  </div>
+	      
+          </div><!--메뉴 판 종료-->
+          </div>
+  
+  
+  <!-- 헤더 끝 -->
 
 
   <div class="untree_co-section untree_co-section-4 pb-0"  id="portfolio-section">
@@ -657,6 +721,7 @@
     <script src="../resources/assets/js/TweenMax.min.js"></script>
     <script src="../resources/assets/js/ScrollMagic.min.js"></script>
     <script src="../resources/assets/js/scrollmagic.animation.gsap.min.js"></script>
+    <script src="../resources/assets/js/menu_header.js"></script>
 
 
     <script src="../resources/assets/js/custom.js"></script>

@@ -11,10 +11,11 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    unicode-range: U+AC00-D7A3;
 }
 
 body {
-  font-family: "PT Mono", monospace;
+  font-family: "PT Mono", monospace, 'IBMPlexSansKR-Regular';
   line-height: 1.6;
   background: #ffffff;
   overflow-x: hidden;
@@ -122,6 +123,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     
 
 .form-control, .custom-select {
+  font-family: 'IBMPlexSansKR-Regular';
   border: none;
   font-size: 16px;
   
@@ -217,7 +219,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   transform: translate(-50%, -50%); }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   color: #ffffff;
   font-weight: 700; }
   .logo:hover {
@@ -491,7 +493,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       .site-mobile-menu .site-nav-wrap .arrow-collapse:before {
         font-size: 14px;
         z-index: 20;
-        font-family: "icomoon";
+        font-family: "icomoon", 'IBMPlexSansKR-Regular';
         content: "\e313";
         position: absolute;
         top: 50%;
@@ -645,7 +647,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     font-size: 40px; }
   .untree_co-section .subheading {
     font-size: 18px;
-    font-family: "PT Mono", monospace; }
+    font-family: "PT Mono", monospace, 'IBMPlexSansKR-Regular'; }
 
 .section-heading {
   font-size: 30px;
@@ -1055,7 +1057,7 @@ figure.dotted-bg {
   position: relative;
   padding-left: 40px; }
   .work-experience:before {
-    font-family: 'icomoon';
+    font-family: 'icomoon', 'IBMPlexSansKR-Regular';
     content: "\e8f7";
     color: #ccc;
     font-size: 20px;
@@ -1368,7 +1370,7 @@ figure.dotted-bg {
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
     .custom-accordion .accordion-item .btn-link:before {
-      font-family: 'icomoon';
+      font-family: 'icomoon', 'IBMPlexSansKR-Regular';
       content: "\f067";
       position: absolute;
       top: 50%;
@@ -1383,7 +1385,7 @@ figure.dotted-bg {
       color: #ffffff !important;
       background: #0389ff; }
       .custom-accordion .accordion-item .btn-link[aria-expanded="true"]:before {
-        font-family: 'icomoon';
+        font-family: 'icomoon', 'IBMPlexSansKR-Regular';
         content: "\f068";
         position: absolute;
         color: #ffffff;
@@ -1448,7 +1450,7 @@ figure.dotted-bg {
   pointer-events: none; }
 
 .control__indicator:after {
-  font-family: 'icomoon';
+  font-family: 'icomoon', 'IBMPlexSansKR-Regular';
   content: '\e5ca';
   position: absolute;
   display: none;
@@ -1596,7 +1598,7 @@ figure.dotted-bg {
   position: relative; }
   .list-check li:before {
     content: "\e5ca";
-    font-family: 'icomoon';
+    font-family: 'icomoon', 'IBMPlexSansKR-Regular';
     position: absolute;
     top: -.3rem;
     font-size: 20px;
@@ -1639,7 +1641,7 @@ figure.dotted-bg {
     top: -.2rem;
     content: "\e5ca";
     font-size: 20px;
-    font-family: 'icomoon'; }
+    font-family: 'icomoon', 'IBMPlexSansKR-Regular'; }
 
 .ul-check.primary li:before {
   color: #0389ff; }

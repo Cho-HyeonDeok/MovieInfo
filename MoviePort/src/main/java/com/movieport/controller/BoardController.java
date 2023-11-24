@@ -65,6 +65,12 @@ public class BoardController {
 		
 	}
 	
+	@GetMapping("/login")
+	public void gologin(){
+		log.info("게시판 진입");
+		
+	}
+	
 
 
 	
