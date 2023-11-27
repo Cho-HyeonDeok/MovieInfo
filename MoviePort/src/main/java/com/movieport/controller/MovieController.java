@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.movieport.model.Criteria;
 import com.movieport.model.MovieVO;
+import com.movieport.model.PageDTO;
 import com.movieport.service.MovieService;
 
 @Controller
@@ -37,6 +38,13 @@ public class MovieController {
 		System.out.println("list : " + list);
 		
 		model.addAttribute("list", list);
+		
+		/* 페이지 이동 인터페이스 데이터 */
+		int total = movieService.movieGetTotal(cri);
+		
+		PageDTO pageMaker = new PageDTO(cri, total);
+		
+		model.addAttribute("pageMaker", pageMaker);
 	}
 	
 

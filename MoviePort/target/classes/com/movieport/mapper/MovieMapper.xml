@@ -27,9 +27,20 @@
 
 	</select>
 	
+	<!-- 작가 수 -->
+	<select id="movieGetTotal" resultType="int">
+	
+		select count(*) from movie
+		
+		<if test="keyword != null">
+			where title like '%' || #{keyword} || '%'
+		</if>
+	
+	</select>
+	
 	<!-- 영화 상세 -->
 	<select id="movieGetDetail" >
-		select * from movie
+		select * from movie where m_code = #{m_code}
 	</select>
 	
 	
