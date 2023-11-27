@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>회원탈퇴</h1>
-	<form id="myInfo" action="/mypage/deleteMember" method="post">
+	<form id="myInfo" method="post">
 		<div>
 			<div>아이디</div>
 			<div>
@@ -30,6 +30,7 @@
 
 	<div>
 		<input type="button" id="delete_button" value="탈퇴하기">
+		<button type="button" onclick="location.href='/mypage/mypageMain'">취소</button>
 	</div>
 
 	<script>

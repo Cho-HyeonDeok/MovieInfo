@@ -10,9 +10,15 @@
 
 	<!-- 회원정보 수정하기 -->
 	<update id="memberUpdate">
-		update member set pwd=#{pwd},
+		update member set
 		nickname=#{nickname},
 		phone=#{phone},email=#{email}
+		where id=#{id}
+	</update>
+
+	<!-- 비밀번호 수정하기 -->
+	<update id="pwdUpdate">
+		update member set pwd=#{pwd}
 		where id=#{id}
 	</update>
 

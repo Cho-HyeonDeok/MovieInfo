@@ -6,30 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.movieport.model.MemberVO;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class MypageMapperTests {
-	
+public class AdminMapperTests {
+
 	@Autowired
-	MypageMapper mypageMapper;
-	
-	// 회원정보 불러오기
+	AdminMapper adminMapper;
+
+	// 회원리스트 가져오기
 //	@Test
-//	public void memberInfo() throws Exception {
-//		String id = "faker";
+//	public void memberList() {
 //
-//		mypageMapper.memberInfo(id);
+//		adminMapper.memberList();
 //	}
-	
-	// 회원탈퇴
+
+	// 회원상세정보 가져오기
 	@Test
-	public void deleteMember() throws Exception {
-		MemberVO member = new MemberVO();
-		member.setId("test");
-		member.setPwd("test@naver.com");
+	public void memberDetail() throws Exception {
+		String id = "bbbb";
 		
-		mypageMapper.deleteMember(member);
+		adminMapper.memberDetail(id);
 	}
 }
