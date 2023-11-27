@@ -2,6 +2,7 @@ package com.movieport.model;
 
 import java.util.Date;
 
+
 public class MemberVO {
 	// 회원아이디
 	private String id;

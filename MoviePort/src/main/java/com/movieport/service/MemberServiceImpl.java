@@ -30,4 +30,10 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberLogin(MemberVO member) throws Exception {
 		return memberMapper.memberLogin(member);
 	}
+
+	// 카카오 로그인
+	@Override
+	public MemberVO kakaoLogin(MemberVO member) throws Exception {
+		return memberMapper.memberLogin(member);
+	}	
 }

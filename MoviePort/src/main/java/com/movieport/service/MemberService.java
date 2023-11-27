@@ -1,6 +1,9 @@
 package com.movieport.service;
 
+import java.util.HashMap;
+
 import com.movieport.model.MemberVO;
+
 
 public interface MemberService {
 	// 회원가입
@@ -11,4 +14,7 @@ public interface MemberService {
 	
 	// 로그인
 	public MemberVO memberLogin(MemberVO member) throws Exception;
+	
+	// 카카오 로그인
+	public MemberVO kakaoLogin(MemberVO member) throws Exception;
 }

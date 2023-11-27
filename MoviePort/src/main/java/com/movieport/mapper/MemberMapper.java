@@ -12,5 +12,6 @@ public interface MemberMapper {
 	// 로그인 
 	public MemberVO memberLogin(MemberVO member);
 	
-	
+	// 카카오 로그인
+	public MemberVO kakaoLogin(MemberVO member);	
 }
