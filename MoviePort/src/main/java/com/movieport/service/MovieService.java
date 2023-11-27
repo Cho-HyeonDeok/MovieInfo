@@ -10,6 +10,7 @@ public interface MovieService {
 	/* 영화 목록 */
 	public List<MovieVO> movieGetList(Criteria cri) throws Exception;
 	
-	
+	/* 작가 총 수 */
+	public int movieGetTotal(Criteria cri) throws Exception;
 	
 }
