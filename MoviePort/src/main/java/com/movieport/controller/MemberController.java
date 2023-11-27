@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -138,7 +137,7 @@ public class MemberController {
 			System.out.println(rawPw + "====>" + encodePw);
 
 			if (true == pwEncoder.matches(rawPw, encodePw)) { // 비밀번호가 일치하는지 판단
-				lvo.setPwd("");
+//				lvo.setPwd("");
 				session.setAttribute("member", lvo); // session에 사용자 정보 저장
 				return "redirect:/main";
 			} else {

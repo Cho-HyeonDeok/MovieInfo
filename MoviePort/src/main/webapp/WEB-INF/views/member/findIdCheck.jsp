@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>아이디 찾기</h1>
-	<form id="findForm" action="/member/findIdCheck" method="post">
+	<form id="findForm" method="post">
 		<div id="form-group">
 			<input type="text" name="name" id="name" placeholder="회원성명">
 		</div>

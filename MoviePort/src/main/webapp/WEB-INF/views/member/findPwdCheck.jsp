@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>비밀번호 찾기</h1>
-	<form id="findForm" action="/member/findPwdCheck" method="post">
+	<form id="findForm" method="post">
 		<div id="form-group">
 			<input type="text" name="id" id="id" placeholder="아이디">
 		</div>

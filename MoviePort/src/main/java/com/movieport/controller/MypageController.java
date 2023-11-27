@@ -43,39 +43,73 @@ public class MypageController {
 	public String myInfoUpdatePOST(MemberVO member, Model model, HttpSession session) throws Exception {
 		log.info("회원정보 수정 동작");
 
-		String pwd = member.getPwd();
 		String nickname = member.getNickname();
 		String phone = member.getPhone();
 		String email = member.getEmail();
 
-		log.info("입력한 비밀번호 : " + pwd);
 		log.info("입력한 닉네임 : " + nickname);
 		log.info("입력한 휴대폰번호 : " + phone);
 		log.info("입력한 이메일 : " + email);
 
-		// 기존 비밀번호 -> 새로운 비밀번호로 변경
-		String rawPwd = ""; // 인코딩 전 비밀번호
-		String encodePwd = ""; // 인코딩 후 비밀번호
-
-		rawPwd = member.getPwd(); // 기존 비밀번호 데이터 얻기
-		log.info("인코딩 전 새로운 비밀번호 : " + rawPwd);
-		encodePwd = pwEncoder.encode(rawPwd); // 새로운 비밀번호 인코딩
-		member.setPwd(encodePwd); // 인코딩된 새로운 비밀번호 member 객체에 다시 저장
-		log.info("인코딩 후 새로운 비밀번호 : " + member.getPwd());
-
 		int result = mypageService.memberUpdate(member);
 		log.info("result : " + result);
 
-//		if (result != 1) { // 회원정보 업데이트 실패시
-//			log.info("수정 실패");
-//			model.addAttribute("msg", "회원정보 수정에 실패하였습니다.\\n올바른 정보를 입력해 주세요.");
-//			model.addAttribute("info", mypageService.memberInfo(member.getId()));
-//			return "/mypage/mypageMain";
-//		}
+		if (result != 1) { // 회원정보 업데이트 실패시
+			log.info("수정 실패");
+			model.addAttribute("msg", "회원정보 수정에 실패하였습니다.\\n올바른 정보를 입력해 주세요.");
+			model.addAttribute("info", mypageService.memberInfo(member.getId()));
+			return "/mypage/mypageMain";
+		}
 
 		log.info("수정 성공");
 		session.invalidate();
 		model.addAttribute("msg", "회원정보 수정이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
+		return "/main";
+	}
+
+	// 비밀번호 변경 페이지로 이동
+	@GetMapping("/pwdUpdate")
+	public String pwdUpdateGET(HttpSession session, Model model, MemberVO member) throws Exception {
+		log.info("비밀번호 변경 페이지 진입");
+
+		member = (MemberVO) session.getAttribute("member");
+		log.info("id : " + member.getId());
+
+		model.addAttribute("info", mypageService.memberInfo(member.getId()));
+		return "/mypage/pwdUpdate";
+	}
+
+	// 비밀번호 변경하기
+	@PostMapping("/pwdUpdate")
+	public String pwdUpdatePOST(MemberVO member, Model model, HttpSession session) throws Exception {
+		log.info("비밀번호 수정 동작");
+
+		String pwd = member.getPwd();
+		log.info("입력한 새 비밀번호 : " + pwd);
+
+		// 기존 비밀번호 -> 새 비밀번호로 변경
+		String rawPwd = ""; // 인코딩 전 비밀번호
+		String encodePwd = ""; // 인코딩 후 비밀번호
+
+		rawPwd = member.getPwd(); // 입력한 새 비밀번호 데이터 얻기
+		log.info("인코딩 전 새로운 비밀번호 : " + rawPwd);
+		encodePwd = pwEncoder.encode(rawPwd); // 입력한 새 비밀번호 인코딩
+		member.setPwd(encodePwd); // 인코딩된 새로운 비밀번호 member 객체에 다시 저장
+		log.info("인코딩 후 새로운 비밀번호 : " + member.getPwd());
+
+		int result = mypageService.pwdUpdate(member);
+		log.info("result : " + result);
+
+		if (result != 1) { // 비밀번호 변경 실패시
+			log.info("비밀번호 변경 실패");
+			model.addAttribute("msg", "비밀번호 변경에 실패하였습니다.");
+			model.addAttribute("info", mypageService.memberInfo(member.getId()));
+			return "/mypage/pwdUpdate";
+		}
+
+		log.info("수정 성공");
+		session.invalidate();
+		model.addAttribute("msg", "비밀번호 변경이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
 		return "/main";
 	}
 
@@ -90,12 +124,12 @@ public class MypageController {
 		model.addAttribute("info", mypageService.memberInfo(member.getId()));
 		return "/mypage/resign";
 	}
-	
+
 	// 회원탈퇴
 	@PostMapping("/deleteMember")
 	public String deleteMemberPOST(HttpSession session, MemberVO member, Model model) throws Exception {
 		log.info("회원탈퇴 동작");
-		
+
 		// 세션에 있는 member를 가져와 member 변수에 넣어준다.
 		MemberVO mvo = (MemberVO) session.getAttribute("member");
 		// 세션에 있는 이메일
@@ -104,8 +138,8 @@ public class MypageController {
 		// member로 들어오는 이메일
 		String memberEmail = member.getEmail();
 		log.info("입력한 이메일 : " + memberEmail);
-		
-		if (sessionEmail.equals(memberEmail)) {	// 실제 DB 이메일과 입력한 이메일이 매칭에 성공한 경우 -> 회원탈퇴 성공
+
+		if (sessionEmail.equals(memberEmail)) { // 실제 DB 이메일과 입력한 이메일이 매칭에 성공한 경우 -> 회원탈퇴 성공
 			log.info("회원탈퇴 성공");
 			mypageService.deleteMember(member);
 			session.invalidate();
@@ -114,7 +148,7 @@ public class MypageController {
 		} else {
 			log.info("회원탈퇴 실패");
 			model.addAttribute("msg", "회원탈퇴 실패\\n이메일을 확인해주세요.");
-			
+
 			member = (MemberVO) session.getAttribute("member");
 			log.info("id : " + member.getId());
 

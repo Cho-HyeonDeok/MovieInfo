@@ -19,8 +19,11 @@
 	</ul>
 	<c:if test="${member != null }">
 		<!-- 로그인 했을때 -->
+		<c:if test="${member.admin == '1'}">
+			<a href="/admin/adminMain">관리자 페이지</a>
+		</c:if>
 		<div class="login_success_area">
-			<span>닉네임 : ${member.nickname }</span> <a href="/member/logout.do">로그아웃</a>
+			<span>${member.nickname}(#${member.id})님</span> <a href="/member/logout.do">로그아웃</a>
 			<a href="/mypage/mypageMain">마이페이지</a>
 		</div>
 	</c:if>
