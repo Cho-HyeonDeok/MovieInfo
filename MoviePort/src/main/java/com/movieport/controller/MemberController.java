@@ -2,9 +2,17 @@ package com.movieport.controller;
 
 import java.util.Random;
 
+<<<<<<< HEAD
+=======
+
+import javax.mail.Session;
+>>>>>>> branch 'JaeYoon' of https://github.com/Cho-HyeonDeok/MoviePort.git
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import javax.mail.internet.MimeMessage;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +24,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+
 
 import com.movieport.model.MemberVO;
 import com.movieport.service.MemberService;
@@ -48,7 +59,7 @@ public class MemberController {
 	public void joinGET() {
 		log.info("회원가입 페이지 진입");
 	}
-	
+
 	// 회원가입
 	@PostMapping("/join")
 	public String joinPOST(MemberVO member) throws Exception {
@@ -66,12 +77,13 @@ public class MemberController {
 
 		return "redirect:/main";
 	}
-	
+
 	// 로그인 페이지 이동
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGET() {
 		log.info("로그인 페이지 이동");
 	}
+
 
 
 	// 아이디 중복 검사
@@ -125,6 +137,7 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		return num;
 	}
+
 	
 	// 로그인
 	@RequestMapping(value = "login.do", method=RequestMethod.POST)
@@ -198,4 +211,5 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/member/login";
 	}
+
 }

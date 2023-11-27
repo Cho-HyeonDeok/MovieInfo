@@ -25,15 +25,19 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.idCheck(id);
 	}
 	
+
 	// 로그인
 	@Override
 	public MemberVO memberLogin(MemberVO member) throws Exception {
 		return memberMapper.memberLogin(member);
 	}
 
+<<<<<<< HEAD
 	// 카카오 로그인
 	@Override
 	public MemberVO kakaoLogin(MemberVO member) throws Exception {
 		return memberMapper.memberLogin(member);
 	}	
+=======
+>>>>>>> branch 'JaeYoon' of https://github.com/Cho-HyeonDeok/MoviePort.git
 }
