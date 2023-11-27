@@ -40,40 +40,6 @@ public class BoardController {
 
 	}
 
-	@GetMapping("/bidulgi")
-	public void gobidulgi() {
-		log.info("게시판 진입");
-
-	}
-
-	@GetMapping("/index")
-	public void goIndex() {
-		log.info("게시판 진입");
-
-	}
-
-	@GetMapping("/portfolio-single-1")
-	public void goPort1() {
-		log.info("게시판 진입");
-
-	}
-
-	@GetMapping("/portfolio-single-2")
-	public void goPort2() {
-		log.info("게시판 진입");
-
-	}
-
-	@GetMapping("/portfolio-single-3")
-	public void goPort3() {
-		log.info("게시판 진입");
-
-	}
-
-	@GetMapping("/join2")
-	public void goJoin2() {
-		log.info("게시판 진입");
-
-	}
+	
 
 }
