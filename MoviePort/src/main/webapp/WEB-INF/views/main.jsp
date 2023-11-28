@@ -126,10 +126,8 @@
 	<!-- 영화 정렬기능 -->
 
 	<script>
-		let moveForm = $('#moveForm');
-		let searchForm = $('#searchForm');
-
 		/* 페이지 이동 버튼 */
+		let moveForm = $('#moveForm');
 		$(".pageMaker_btn a").on("click", function(e) {
 
 			e.preventDefault();
@@ -140,6 +138,7 @@
 		});
 
 		/* 작가 검색 버튼 동작 */
+		let searchForm = $('#searchForm');
 		$("#searchForm button").on("click", function(e) {
 
 			e.preventDefault();
