@@ -51,10 +51,17 @@ public class MovieController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 	
-	// 영화 상세 정보 페이지로 이동
+	/* 영화 상세 페이지 */
 	@GetMapping("/movie/movieDetail")
-	public void movieDetailGET(){
-		log.info("영화 상세 정보 페이지 진입");
+	public void movieDetailGET(int m_code, Criteria cri, Model model) throws Exception{
+		
+		log.info("movieDetail........." + m_code);
+		
+		/* 영화 목록 페이지 정보 */
+		model.addAttribute("cri", cri);
+		
+		/* 선택 영화 정보 */
+		model.addAttribute("movieInfo", movieService.movieGetDetail(m_code));
 		
 	}
 	
