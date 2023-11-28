@@ -48,8 +48,9 @@
 					</tr>
 				</thead>
 				<c:forEach items="${list}" var="list">
+				<input type="hidden" name="m_code" value="${m_code}">
 					<tr>
-						<td><img src="../../resources/img/${list.title}.jpg"></td>
+						<td><a href="/movie/movieDetail?m_code=${m_code}"><img src="../../resources/img/${list.title}.jpg"></a></td>
 						<td><c:out value="${list.title}"></c:out></td>
 						<td><c:out value="${list.genres}"></c:out></td>
 						<td><c:out value="${list.content}"></c:out></td>

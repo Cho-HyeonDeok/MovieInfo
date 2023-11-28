@@ -16,4 +16,7 @@ public interface MovieMapper {
 	/* 영화 상세 */
 	public MovieVO movieGetDetail(String m_code);
 	
+	// 영화코드, 영화제목 불러오기
+	public MovieVO movieGetCodeTitle(String m_code);
+	
 }
