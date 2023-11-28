@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -62,6 +63,15 @@ public class MovieController {
 		
 		/* 선택 영화 정보 */
 		model.addAttribute("movieInfo", movieService.movieGetDetail(m_code));
+		
+	}
+	
+	/* 영화 평점 반영 */
+	@PostMapping("/movie/movieDetail")
+	public void movieSetRatePOST(int m_code, Criteria cri, Model model) throws Exception{
+		
+		log.info("movieSetRatePOST...............");
+		
 		
 	}
 	

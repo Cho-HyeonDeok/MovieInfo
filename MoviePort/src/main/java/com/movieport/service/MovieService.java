@@ -19,4 +19,16 @@ public interface MovieService {
 	/* 영화 상세 페이지 */
 	public MovieVO movieGetDetail(int m_code) throws Exception;
 	
+	/* 영화 평점 */
+	public double movieGetRate(int m_code) throws Exception;
+	
+	/* 영화 총 평점 인원 수 */
+	public int movieGetRateCount(int m_code) throws Exception;
+	
+	/* 영화 평점 반영 */
+	public void movieSetRate(int m_code) throws Exception;
+	
+	/* 영화 총 평점 인원 수 반영 */
+	public void movieSetRateCount(int m_code) throws Exception;
+	
 }

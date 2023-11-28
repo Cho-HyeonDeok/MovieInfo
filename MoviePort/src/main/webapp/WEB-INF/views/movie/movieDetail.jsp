@@ -18,6 +18,7 @@
 	<div id="movie_content_wrap">
 		<div id="movie_content_subject"><span>영화 상세</span></div>
 		<div id="movie_content_main">
+		
 			<div class="form_section">
 				<div class="form_section_title">
 					<label>영화 썸네일</label>
