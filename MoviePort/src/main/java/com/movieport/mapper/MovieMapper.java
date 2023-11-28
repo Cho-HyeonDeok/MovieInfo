@@ -14,6 +14,6 @@ public interface MovieMapper {
 	public int movieGetTotal(Criteria cri);
 	
 	/* 영화 상세 */
-	public MovieVO movieGetDetail(String m_code);
+	public MovieVO movieGetDetail(int m_code);
 	
 }
