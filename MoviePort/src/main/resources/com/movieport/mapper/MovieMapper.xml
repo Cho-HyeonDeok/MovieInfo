@@ -43,5 +43,10 @@
 		select * from movie where m_code = #{m_code}
 	</select>
 	
+	<!-- 영화코드, 영화이름 불러오기 -->
+	<select id="movieGetCodeTitle" >
+		select m_code, title from movie where m_code = #{m_code}
+	</select>
+	
 	
 </mapper>
