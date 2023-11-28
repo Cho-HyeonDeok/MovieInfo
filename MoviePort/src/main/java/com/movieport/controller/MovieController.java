@@ -66,14 +66,14 @@ public class MovieController {
 	}
 	
 	// 리뷰 등록하기
-	@GetMapping("/reviewInsert/{id}")
-	public String reviewInsertWindowGET(@PathVariable("id")String id, String m_code, Model model) throws Exception {
-		MovieVO movie = movieService.movieGetCodeTitle(m_code);
-		model.addAttribute("movieInfo", movie);
-		model.addAttribute("memberId", id);
-		
-		return "/reviewInsert";
-	}
+//	@GetMapping("/reviewInsert/{id}")
+//	public String reviewInsertWindowGET(@PathVariable("id")String id, String m_code, Model model) throws Exception {
+//		MovieVO movie = movieService.movieGetCodeTitle(m_code);
+//		model.addAttribute("movieInfo", movie);
+//		model.addAttribute("memberId", id);
+//		
+//		return "/reviewInsert";
+//	}
 	
 
 }
