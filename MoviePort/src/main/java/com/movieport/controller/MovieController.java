@@ -35,9 +35,12 @@ public class MovieController {
 		
 		List<MovieVO> list = movieService.movieGetList(cri);
 		
-		System.out.println("list : " + list);
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);			// 영화 존재 o
+		} else {
+			model.addAttribute("listCheck", "empty");	// 영화 존재 x
+		}
 		
-		model.addAttribute("list", list);
 		
 		/* 페이지 이동 인터페이스 데이터 */
 		int total = movieService.movieGetTotal(cri);
