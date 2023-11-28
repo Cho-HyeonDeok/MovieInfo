@@ -22,6 +22,7 @@ public interface MemberMapper {
 
 	public void findPwd(MemberVO member);
 	
-	
+	// 카카오 로그인
+	public MemberVO kakaoLogin(MemberVO member);	
 
 }

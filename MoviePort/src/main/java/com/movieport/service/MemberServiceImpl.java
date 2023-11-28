@@ -31,6 +31,12 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.memberLogin(member);
 	}
 
+	// 카카오 로그인
+	@Override
+	public MemberVO kakaoLogin(MemberVO member) throws Exception {
+		return memberMapper.memberLogin(member);
+	}	
+
 	// 아이디 찾기
 	@Override
 	public int findIdCheck(MemberVO member) throws Exception {
