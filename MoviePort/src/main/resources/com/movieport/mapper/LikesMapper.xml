@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movieport.mapper.LikesMapper">
+
+	/* 좋아요 삽입 */
+	public void movieInsert(int m_code);
+	
+	/* 좋아요 삭제 */
+	public void movieDelete(int m_code);
+	
+	/* 좋아요 목록 */
+	public List<LikesVO> movieSelectList(Criteria cri);
+
+	
+
+</mapper>

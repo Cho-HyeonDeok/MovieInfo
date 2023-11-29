@@ -68,7 +68,7 @@
 					<c:forEach items="${list}" var="list">
             <input type="hidden" name="m_code" value="${m_code}">
 						<tr>
-							<td><a id="move" href='<c:out value="${list.m_code}"/>'>
+							<td><a class="move" href='<c:out value="${list.m_code}"/>'>
 								<img src="../../resources/img/${list.title}.jpg">
 							</a></td>
 							<td><c:out value="${list.title}"></c:out></td>
@@ -159,7 +159,7 @@
 		});
 		
 		/* 작가 상세 페이지 이동 */
-		$("#move").on("click", function(e) {
+		$(".move").on("click", function(e) {
 			
 			e.preventDefault();
 			

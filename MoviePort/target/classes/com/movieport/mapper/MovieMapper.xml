@@ -48,5 +48,33 @@
 		select m_code, title from movie where m_code = #{m_code}
 	</select>
 	
+	<!-- 영화 평점 -->
+	<select id="movieGetRate" resultType="double">
+		select totalrate from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 총 평점 인원 수 -->
+	<select id="movieGetRateCount" resultType="int">
+		select rate_count from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 평점 반영 -->
+	<select id="movieSetRate">
+		update movie
+		set totalrate = #{totalrate}
+		where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 총 평점 인원 수 반영 -->
+	<select id="movieSetRateCount">
+		update movie
+		set rate_count = #{rate_count}
+		where m_code = #{m_code}
+	</select>
+	
+	
+	
+	
+	
 	
 </mapper>
