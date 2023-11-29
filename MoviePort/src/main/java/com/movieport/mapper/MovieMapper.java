@@ -19,9 +19,22 @@ public interface MovieMapper {
 	// 영화코드, 영화제목 불러오기
 	public MovieVO movieGetCodeTitle(String m_code);
 	
+	/* 영화 평점 */
+	public double movieGetRate(int m_code);
+	
+	/* 영화 총 평점 인원 수 */
+	public int movieGetRateCount(int m_code);
+	
+	/* 영화 평점 반영 */
+	public void movieSetRate(int m_code);
+	
+	/* 영화 총 평점 인원 수 반영 */
+	public void movieSetRateCount(int m_code);
+
 	/* 평점순으로 영화 정렬 */
 	public List<MovieVO> sortMovieTotalrate(Criteria cri);
 	
 	/* 최신순으로 영화 정렬 */
 	public List<MovieVO> latestMovie(Criteria cri);
+
 }

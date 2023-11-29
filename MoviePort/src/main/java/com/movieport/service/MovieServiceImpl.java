@@ -49,6 +49,32 @@ public class MovieServiceImpl implements MovieService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	/* 영화 평점 */
+	@Override
+	public double movieGetRate(int m_code) throws Exception {
+		return movieMapper.movieGetRate(m_code);
+	}
+	
+	/* 영화 총 평점 인원 수 */
+	@Override
+	public int movieGetRateCount(int m_code) throws Exception {
+		return movieMapper.movieGetRateCount(m_code);
+	}
+
+	/* 영화 평점 반영 */
+	@Override
+	public void movieSetRate(int m_code) throws Exception {
+		movieMapper.movieSetRate(m_code);
+	}
+	
+	/* 영화 총 평점 인원 수 반영 */
+	@Override
+	public void movieSetRateCount(int m_code) throws Exception {
+		movieMapper.movieSetRateCount(m_code);
+	}
+
+	
 	
 	
 	
