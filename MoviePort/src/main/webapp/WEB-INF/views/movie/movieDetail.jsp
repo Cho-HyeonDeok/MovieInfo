@@ -106,15 +106,19 @@
 	<!-- 평점 매기기 -->
 
 	<!-- 리뷰 출력 및 작성 --> <!-- 유저 기본 정보  -->
-	<div id="review_button_wrap">
-		<button>리뷰 쓰기</button>
-	</div>
+	<form id="reviewInsert" method="post" action="/movie/insertReview">
+		<div>
+			<textarea rows="10" cols="50" name="comments"></textarea>
+			<button type="submit">리뷰 작성</button>
+		</div>
+	</form>
 	
 	
 	
 	<!-- 풋터 넣기 -->
+	
 
-	<script>
+	<!-- <script>
 		/* 리뷰쓰기 */
 		$("#review_button_wrap").on("click", function(e) {
 
@@ -130,6 +134,6 @@
 			window.open(popUrl,"리뷰 쓰기",popOption);
 
 		});
-	</script>
+	</script> -->
 </body>
 </html>
