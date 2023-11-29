@@ -44,7 +44,13 @@
 			</div>
 		</form>
 	</div>
-
+	<div>
+		<select id="sortOption" name="sortOption">
+			<option>선택하세요</option>
+			<option value="totalrate">평점</option>
+			<option value="showdate" >최신순</option>
+		</select>
+	</div>
 
 	<!-- 영화 데이터 출력 -->
 	<div id="movie_content_wrap">
@@ -124,6 +130,7 @@
 
 
 	<!-- 영화 정렬기능 -->
+	
 
 	<script>
 		let moveForm = $('#moveForm');
@@ -154,6 +161,29 @@
 
 			searchForm.submit();
 		});
+		
+		/* 정렬 옵션 변경 이벤트 */
+	    $("#sortOption").on("change", function () {
+	        // 선택된 옵션 값을 가져옴
+	        let selectedOption = $(this).val();
+	
+	       	// 정렬 처리
+	        if (selectedOption === "totalrate") {
+	            // 평점순으로 정렬
+	            searchForm.append('<input type="hidden" name="sortOption" value="totalrate">');
+	        }  else if (selectedOption === "showdate") {
+	            // 최신순으로 정렬
+	            searchForm.append('<input type="hidden" name="sortOption" value="showdate">');
+	        } else {
+	            // 다른 옵션을 선택하거나 기본 옵션을 선택한 경우 hidden input 제거
+	            searchForm.find("input[name='sortOption']").remove();
+	        }
+	
+	        // 정렬을 적용하기 위해 폼 제출
+	        searchForm.submit();
+	    });
+		
+		
 	</script>
 
 	<script type="text/javascript">

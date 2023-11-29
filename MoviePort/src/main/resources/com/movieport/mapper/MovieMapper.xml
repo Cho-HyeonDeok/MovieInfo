@@ -43,5 +43,15 @@
 		select * from movie where m_code = #{m_code}
 	</select>
 	
+	<!-- 영화 높은평점순 정렬 -->
+	<select id="sortMovieTotalrate" resultType="com.movieport.model.MovieVO">
+		select * from movie
+		ORDER BY totalrate DESC
+	</select>
 	
+	<!-- 영화 최신순으로 정렬 -->
+		<select id="latestMovie" resultType="com.movieport.model.MovieVO">
+		select * from movie
+		ORDER BY showdate DESC
+	</select>
 </mapper>

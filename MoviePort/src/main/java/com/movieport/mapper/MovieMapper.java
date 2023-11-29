@@ -16,4 +16,9 @@ public interface MovieMapper {
 	/* 영화 상세 */
 	public MovieVO movieGetDetail(String m_code);
 	
+	/* 평점순으로 영화 정렬 */
+	public List<MovieVO> sortMovieTotalrate(Criteria cri);
+	
+	/* 최신순으로 영화 정렬 */
+	public List<MovieVO> latestMovie(Criteria cri);
 }

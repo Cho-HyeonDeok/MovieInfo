@@ -13,4 +13,9 @@ public interface MovieService {
 	/* 작가 총 수 */
 	public int movieGetTotal(Criteria cri) throws Exception;
 	
+	/* 높은 평점순 정렬 */
+	public List<MovieVO> sortMovieTotalrate(Criteria cri) throws Exception;
+
+	/* 최신순으로 영화 정렬 */
+	public List<MovieVO> latestMovie(Criteria cri) throws Exception;
 }
