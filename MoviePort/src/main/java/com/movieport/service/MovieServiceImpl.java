@@ -32,6 +32,7 @@ public class MovieServiceImpl implements MovieService {
 		log.info("(service) movieGetTotal()........" + cri);
 		
 		return movieMapper.movieGetTotal(cri);
+
 	}
 
 	/* 영화 상세 페이지 */
@@ -51,4 +52,15 @@ public class MovieServiceImpl implements MovieService {
 	
 	
 	
+	/* 높은 평점순 정렬 */
+	@Override
+	public List<MovieVO> sortMovieTotalrate(Criteria cri) throws Exception {	
+		return movieMapper.sortMovieTotalrate(cri);
+	};
+	
+	/* 최신순으로 영화 정렬 */
+	@Override
+	public List<MovieVO> latestMovie(Criteria cri) throws Exception {	
+		return movieMapper.latestMovie(cri);
+	};
 }
