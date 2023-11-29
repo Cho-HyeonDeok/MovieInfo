@@ -11,10 +11,11 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    unicode-range: U+AC00-D7A3;
 }
 
 body {
-  font-family: "PT Mono", monospace;
+  font-family: "PT Mono", monospace, 'IBMPlexSansKR-Regular';
   line-height: 1.6;
   background: #ffffff;
   overflow-x: hidden;
@@ -96,10 +97,25 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     .btn.btn-primary:hover {
       border-color: #1793ff;
       background: #1793ff; }
+      
+  .btn.btn-white {
+    font-family:'IBMPlexSansKR-Regular';
+    background: #fff;
+    border: 1px solid black;
+    color: #000; }
+   .btn.btn-white:hover {
+      font-family:'IBMPlexSansKR-Regular';
+      background: #000;
+      border-color: transparent;
+      color: #fff;
+      
+       }    
   .btn.btn-black {
+    font-family:'IBMPlexSansKR-Regular';
     background: #000000;
     color: #ffffff; }
     .btn.btn-black:hover {
+      font-family:'IBMPlexSansKR-Regular';
       border-color: #000000;
       background: transparent;
       color: #000000; }
@@ -119,6 +135,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
       border-color: #0a0a0a; }
 
 .form-control, .custom-select {
+  font-family: 'IBMPlexSansKR-Regular';	
   border: none;
   font-size: 16px;
   height: 45px;
@@ -218,6 +235,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     color: #ffffff; }
 
 .site-nav {
+ 
   position: absolute;
   width: 100%;
   z-index: 7; }
@@ -227,6 +245,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     cursor: pointer; }
 
 .site-nav {
+  font-family:'IBMPlexSansKR-Regular';
   padding-top: 20px;
   padding-bottom: 20px; }
   .site-nav h1 {
@@ -1167,6 +1186,7 @@ figure.dotted-bg {
 #about-section {
   margin-top: 7rem; }
   #about-section .container {
+    font-family:'IBMPlexSansKR-Regular';
     background: #0389ff;
     padding-top: 50px;
     padding-bottom: 50px;

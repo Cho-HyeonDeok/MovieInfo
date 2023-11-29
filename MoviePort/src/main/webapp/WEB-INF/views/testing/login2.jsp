@@ -113,7 +113,7 @@
           <h2 class="subheading gsap-reveal-hero mb-4">
             <strong>All of Reviews in here</strong>.
           </h2>
-          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="header_genre">장르 헤더 넣어야함 살려주세요</a></p>    
+          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">장르 헤더 넣어야함 살려주세요</a></p>    
         </div>
       </div>
       
@@ -142,98 +142,34 @@
           <div class="col-4 col-sm-4 col-md-4 col-lg-6">
               
                <form id="join_form" method="post">
-               	<div class="row justify-content-center text-center">
-                <div class="col-12 form-group" style="padding-bottom: 15px;">
-                  <input  id="id_input" name="id" class="form-control" placeholder="Id">
-                  <span class="sub_warn_msg" id="id_input_re_1">사용 가능한 아이디입니다.</span> 
-                  <span class="sub_warn_msg" id="id_input_re_2">아이디가 이미 존재합니다.</span> 
-                  
-                 <!--   <span class="sub_warn_msg" id="final_id_ck">아이디를 입력해주세요.</span>-->
+               	<div class="row justify-content-center text-center" style="padding-bottom: 15px;">
+                <div class="col-12 form-group">
+                  <input id="id_input" name="id" class="form-control" placeholder="Id">
                 </div>
                 </div>
-                <div class="row" style="padding-bottom: 15px;">
+                <div class="row" style="padding-bottom: 25px;">
                  <div class="col-12 form-group">
                   <input id="pw_input" name="pwd" class="form-control" placeholder="Password">
-     
-                 <!--   <span class="sub_warn_msg" id="final_pw_ck">비밀번호를 입력해주세요.</span>-->
                 </div>
                  </div>
                   <div class="row" style="padding-bottom: 15px;">
                  <div class="col-12 form-group">
-                  <input id="pwck_input" class="form-control" placeholder="Password Check">
-                 <!--  <span class="sub_warn_msg" id="final_pwck_ck">확인용 비밀번호를 입력해주세요.</span> -->
-                  <span class="sub_warn_msg" id="pwck_input_re_1">비밀번호가 일치합니다.</span> 
-                  <span class="sub_warn_msg" id="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
+                  <span>  비밀번호 찾기  </span>|<span>  아이디 찾기  </span>|<span>  회원가입</span>
                 </div>
                 </div>
-                <div class="row" style="padding-bottom: 15px;">
-                 <div class="col-12 form-group">
-                  <input id="user_input" name="name" class="form-control" placeholder="Name">
- 
-                  <!-- <span class="sub_warn_msg" id="final_name_ck">이름을 입력해주세요.</span> -->
-                </div>
-                </div>
-                 <div class="row" style="padding-bottom: 15px;">
-                 <div class="col-12 form-group">
-                  <input id="nick_input" name="nickname" class="form-control" placeholder="NickName">
- 
-                </div>
-                </div>
-                 <div class="row" style="padding-bottom: 15px;">
-                 <div class="col-12 form-group">
-                  <input id="phone_input" name="phone" class="form-control" placeholder="PhoneNumber">
-                 <!-- <span class="sub_warn_msg" id="final_phone_ck">휴대폰번호를 입력해주세요.</span> --> 
-
-                  <span class="sub_warn_msg" id="phone_input_re">올바르지 못 한 휴대폰번호 형식입니다.</span>
-                </div>
-                </div>
-                
-                <div class="row" style="padding-bottom: 15px;">
-                 <div id="email_box_css" class="col-12 form-group" style="display: flex;">
-       
-	                 	 <input id="mail_input" name="email" type="text" class="form-control" placeholder="Email">
-	                
-	                 	
-	                 <div class="col-4" id= "mail_check_button">
-						<span class="btn btn-black"> submit </span>
-					 </div>
-			           
-		           </div>
-		             
-		           </div>
-		           <div class="row" style="padding-bottom: 15px;">
-		          <div id="email_check_box_css" class="col-9 form-group">
-		             <span class="mail_input_box_warn"></span>
-		             <!-- 메일 인증받는 칸 -->
-		             <div id="mail_check_input_box">
-		                 
-		                  <input type="text" class="form-control" id="mail_check_input" placeholder="Email Check" disabled="disabled">
-		 
-		              
-             		 </div>
-		               
-					 
-					 </div>
-					 </div>
-				   
-					 
-					 <!-- 뭐더라 이거 -->
-						<span id="mail_check_input_box_warn"></span>
-						
+                 
+               
 				
-					<div class="row justify-content-center text-center">
+					<div class="row justify-content-center text-center" style="padding-bottom: 15px;">
 				  <!--가입 및 취소 버튼-->
-	                <div class="col-2 col-sm-3 col-md-3 col-lg-3 form-group">
-	                  <input type="button" id="join_button" class="btn btn-black" value="Sign Up">
-	                 
+	                <div class="col-12 form-group">
+	                  <input type="button" id="join_button" class="btn btn-black" value="     Login     ">
 	                </div>
-	                 <div class="col-2 col-sm-2 col-md-2 col-lg-3 form-group">
-	                   <input type="button" id="move_button" class="btn btn-black" value="Cancel">
-	                </div>
+	               
 	                </div>
     
                 
-				<!-- ROW종료 -->
+		
 				 </form>
               
               </div>
@@ -387,15 +323,13 @@
 							/* console.log("성공 여부" + result); */
 							if (result != 'fail') {
 								$('#id_input_re_1').css("display",
-										"block");
+										"inline-block");
 								$('#id_input_re_2').css("display", "none");
 								// 아이디 중복이 없는 경우
 								idckCheck = true;
-							} 
-							
-							else {
+							} else {
 								$('#id_input_re_2').css("display",
-										"block");
+										"inline-block");
 								$('#id_input_re_1').css("display", "none");
 								// 아이디 중복된 경우
 								idckCheck = false;
@@ -418,10 +352,10 @@
 			/* 이메일 형식 유효성 검사 */
 			if (mailFormCheck(email)) {
 				warnMsg.html("이메일이 전송 되었습니다. 이메일을 확인해주세요.");
-				warnMsg.css("display", "block");
+				warnMsg.css("display", "inline-block");
 			} else {
-				warnMsg.html("올바르지 못 한 이메일 형식입니다.");
-				warnMsg.css("display", "block");
+				warnMsg.html("올바르지 못한 이메일 형식입니다.");
+				warnMsg.css("display", "inline-block");
 				return false;
 			}
 

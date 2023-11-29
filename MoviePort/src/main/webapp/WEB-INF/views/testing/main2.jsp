@@ -32,8 +32,11 @@
   <link rel="stylesheet" href="../resources/assets/fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="../resources/assets/css/aos.css">
   <link rel="stylesheet" href="../resources/assets/css/style.css">
+  <link rel="stylesheet" href="../resources/css/member/join.css">
 
   <title>MoviePort</title>
+  
+  
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
@@ -108,12 +111,77 @@
           <h2 class="subheading gsap-reveal-hero mb-4">
             All of Reviews in here</strong>.
           </h2>
-          <p class="gsap-reveal-hero"><a href="https://untree.co/" target="_blank" class="btn btn-outline-black">장르 헤더 넣어야함 살려주세요</a></p>    
+
         </div>
+        
+         <div id="h_H" class="col-md-10 col-lg-12 text-center">
+ 	  <div class="h_L">
+          <ul class="h_menu">
+          
+	          <li><a href="/movieInfo/" id="bidulgi">액션</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">로맨스</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">코미디</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">스릴러</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">호러</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">SF</a></li>
+	          <li><a href="/movieInfo/" id="bidulgi">애니</a></li>
+	          <li class="bar"></li>
+          </ul>
+			
+	      </div>
+	      
+	      <!--  
+		
+			
+		  <div class="menu_pan">
+		  	<div class="w_1350">
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  	<div class="menu_category">
+		  			
+		  		    <div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+		  		 	<div class="category"><a href="/movieInfo">액션/로맨스</a></div>
+
+		  		
+		  	</div>
+		  	
+		  
+		  </div>
+	      
+          </div><!--메뉴 판 종료-->
+          </div>
+  
       </div>
       
     </div>
   </div>
+  
+  
+  
+  <!-- 헤더 끝 -->
 
 
   <div class="untree_co-section untree_co-section-4 pb-0"  id="portfolio-section">

@@ -6,14 +6,19 @@
   font-family: "Flaticon";
   src: url("./Flaticon.eot");
   src: url("./Flaticon.eot?#iefix") format("embedded-opentype"), url("./Flaticon.woff2") format("woff2"), url("./Flaticon.woff") format("woff"), url("./Flaticon.ttf") format("truetype"), url("./Flaticon.svg#Flaticon") format("svg");
+  unicode-range: U+AC00-D7A3;
+  unicode-range: U+0061-007A;
+  unicode-range: U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+   }
 
 @font-face {
     font-family: 'IBMPlexSansKR-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    unicode-range:  U+AC00-D7A3
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
@@ -22,6 +27,9 @@
     @font-face {
     font-family: 'IBMPlexSansKR-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');}
+    unicode-range: U+AC00-D7A3;
+  unicode-range: U+0061-007A;
+  unicode-range: U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
      }
 
 
