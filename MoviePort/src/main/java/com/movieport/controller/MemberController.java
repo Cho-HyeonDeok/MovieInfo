@@ -2,10 +2,6 @@ package com.movieport.controller;
 
 import java.util.Random;
 
-
-
-import javax.mail.Session;
-
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

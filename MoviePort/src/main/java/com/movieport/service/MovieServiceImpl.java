@@ -25,16 +25,32 @@ public class MovieServiceImpl implements MovieService {
 		return movieMapper.moviesGetList(cri);
 	}
 	
-	/* 작가 총 수 */
+	/* 영화 총 개수 */
 	@Override
 	public int movieGetTotal(Criteria cri) throws Exception {
-		
 		
 		log.info("(service) movieGetTotal()........" + cri);
 		
 		return movieMapper.movieGetTotal(cri);
-		
+
 	}
+
+	/* 영화 상세 페이지 */
+	@Override
+	public MovieVO movieGetDetail(int m_code) throws Exception {
+
+		log.info("movieGetDetail........" + m_code);
+		return movieMapper.movieGetDetail(m_code);
+	}
+
+	// 영화코드, 영화제목 불러오기
+	@Override
+	public MovieVO movieGetCodeTitle(String m_code) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 	
 	/* 높은 평점순 정렬 */
 	@Override

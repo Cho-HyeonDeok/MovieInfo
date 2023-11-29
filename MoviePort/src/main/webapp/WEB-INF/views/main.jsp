@@ -55,6 +55,7 @@
 	<!-- 영화 데이터 출력 -->
 	<div id="movie_content_wrap">
 		<div id="movie_table_wrap">
+
 			<!-- 게시물 O -->
 			<c:if test="${listCheck != 'empty' }">
 				<table id="movie_table">
@@ -71,8 +72,11 @@
 						</tr>
 					</thead>
 					<c:forEach items="${list}" var="list">
+            <input type="hidden" name="m_code" value="${m_code}">
 						<tr>
-							<td><img src="../../resources/img/${list.title}.jpg"></td>
+							<td><a id="move" href='<c:out value="${list.m_code}"/>'>
+								<img src="../../resources/img/${list.title}.jpg">
+							</a></td>
 							<td><c:out value="${list.title}"></c:out></td>
 							<td><c:out value="${list.genres}"></c:out></td>
 							<td><c:out value="${list.content}"></c:out></td>
@@ -133,10 +137,8 @@
 	
 
 	<script>
-		let moveForm = $('#moveForm');
-		let searchForm = $('#searchForm');
-
 		/* 페이지 이동 버튼 */
+		let moveForm = $('#moveForm');
 		$(".pageMaker_btn a").on("click", function(e) {
 
 			e.preventDefault();
@@ -147,6 +149,7 @@
 		});
 
 		/* 작가 검색 버튼 동작 */
+		let searchForm = $('#searchForm');
 		$("#searchForm button").on("click", function(e) {
 
 			e.preventDefault();
@@ -162,6 +165,7 @@
 			searchForm.submit();
 		});
 		
+
 		/* 정렬 옵션 변경 이벤트 */
 	    $("#sortOption").on("change", function () {
 	        // 선택된 옵션 값을 가져옴
@@ -184,6 +188,16 @@
 	    });
 		
 		
+
+		/* 작가 상세 페이지 이동 */
+		$("#move").on("click", function(e) {
+			
+			e.preventDefault();
+			
+			moveForm.append("<input type='hidden' name='m_code' value='"+ $(this).attr("href") + "'>");
+			moveForm.attr("action", "/movie/movieDetail");
+			moveForm.submit();
+		});
 	</script>
 
 	<script type="text/javascript">
