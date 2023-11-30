@@ -9,14 +9,14 @@ import com.movieport.model.ReviewVO;
 import com.movieport.service.ReviewService;
 
 @RestController		// 뷰를 따로 만들지 않고 바로 http body 데이터를 담아 반환하기 위함
-@RequestMapping("/movie")
+@RequestMapping("/review")
 public class ReviewController {
 	
 	@Autowired
 	private ReviewService reviewService;
 	
 	// 리뷰 등록
-	@PostMapping("/insertReview")
+	@PostMapping("/insert")
 	public void insertReviewPOST(ReviewVO review) throws Exception {
 		reviewService.insertReview(review);
 	}
