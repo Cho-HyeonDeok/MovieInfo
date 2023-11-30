@@ -14,7 +14,9 @@
 	<ul>
 		<li><a href="/mypage/pwdUpdate">비밀번호 변경</a></li>
 		<li><a href="/mypage/reviews">내가 쓴 글 목록</a></li>
-		<li><a href="/mypage/likes">좋아요 표시한 목록</a></li>
+		<li>
+			<a href="/mypage/likes/${info.id}">좋아요 표시한 목록</a>
+		</li>
 		<li><a href="/mypage/resign">회원탈퇴</a></li>
 	</ul>
 
