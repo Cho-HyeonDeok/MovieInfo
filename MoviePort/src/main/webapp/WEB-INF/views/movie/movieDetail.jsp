@@ -101,24 +101,29 @@
 		<input type="hidden" name="keyword" value='<c:out value="${cri.keyword}"/>'>
 	</form>
 
-	<!-- 찜 등록 및 취소 -->
+	<!-- 좋아요 등록 및 취소 -->
+	<div id = "button">
+		<div class="button_likes">
+			<span>
+				<button class="button_likes_insert"> 좋아요 추가 </button>
+				<button class="button_likes_delete"> 좋아요 삭제 </button>
+			</span>
+		</div>
+	</div>
+	
 	
 	<!-- 평점 매기기 -->
 
 	<!-- 리뷰 출력 및 작성 --> <!-- 유저 기본 정보  -->
-	<form id="reviewInsert" method="post" action="/movie/insertReview">
-		<div>
-			<textarea rows="10" cols="50" name="comments"></textarea>
-			<button type="submit">리뷰 작성</button>
-		</div>
-	</form>
+	<div id="review_button_wrap">
+		<button>리뷰 쓰기</button>
+	</div>
 	
 	
 	
 	<!-- 풋터 넣기 -->
-	
 
-	<!-- <script>
+	<script>
 		/* 리뷰쓰기 */
 		$("#review_button_wrap").on("click", function(e) {
 
@@ -134,6 +139,53 @@
 			window.open(popUrl,"리뷰 쓰기",popOption);
 
 		});
-	</script> -->
+		
+		// 서버로 전송할 좋아요 데이터
+		const form = {
+				id : '${member.id}',
+				m_code : '${movieInfo.m_code}',
+				thumb : '${movieInfo.thumb}',
+				title : '${movieInfo.title}'
+		}
+		
+		/* 좋아요 추가 */
+		$(".button_likes_insert").on("click", function(e) {
+			//console.log(${member.id});
+			//console.log(${movieInfo.m_code});
+			$.ajax({
+				url: '/likes/insert',
+				type: 'POST',
+				data: form,
+				success: function(result) {
+					cartAlert(result);
+				}
+			})
+		});		
+	
+		/* 좋아요 삭제 */
+		$(".button_likes_delete").on("click", function(e) {
+			$.ajax({
+				url: '/likes/delete',
+				type: 'POST',
+				data: form,
+				success: function(result) {
+					
+				}
+			})
+		});	
+		
+		function cartAlert(result) {
+			if(result == '0') {
+				alert("좋아요를 추가하지 못하였습니다.");
+			} else if(result == '1') {
+				alert("좋아요에 추가되었습니다.");
+			} else if(result == '2') {
+				alert("좋아요가 이미 추가되어 있습니다.");
+			} else if(result == '5') {
+				alert("로그인이 필요합니다.");
+			}
+		}
+		
+	</script>
 </body>
 </html>
