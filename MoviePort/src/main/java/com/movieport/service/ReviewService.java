@@ -4,5 +4,5 @@ import com.movieport.model.ReviewVO;
 
 public interface ReviewService {
 	// 리뷰 등록
-	public void insertReview(ReviewVO review) throws Exception;
+	public int insertReview(ReviewVO review) throws Exception;
 }

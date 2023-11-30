@@ -20,7 +20,7 @@ public class BoardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 	
-	@GetMapping("/main2")
+	@GetMapping("/main")
 	public void goMain(){
 		log.info("게시판 진입");
 		
@@ -64,37 +64,6 @@ public class BoardController {
 		log.info("게시판 진입");
 		
 	}
-	
-	@GetMapping("/login2")
-	public void goLogin2(){
-		log.info("게시판 진입");
-		
-	}
-	@GetMapping("/footer")
-	public void footer(){
-		log.info("게시판 진입");
-		
-	}
-	
-	@GetMapping("/header")
-	public void header(){
-		log.info("게시판 진입");
-		
-	}
-	
-	@GetMapping("/mypageMain2")
-	public void mypageMain2(){
-		log.info("게시판 진입");
-		
-	}
-	
-	@GetMapping("/pwdUpdate2")
-	public void pwdUpdate2(){
-		log.info("게시판 진입");
-		
-	}
-	
-	
 	
 
 
