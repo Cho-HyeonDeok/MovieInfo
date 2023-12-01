@@ -156,4 +156,16 @@ public class MypageController {
 			return "/mypage/resign";
 		}
 	}
+
+	// 나의 리뷰 목록 페이지로 이동 및 출력
+	@GetMapping("/reviews")
+	public String myReviewsGET(HttpSession session, Model model, MemberVO member) throws Exception {
+		log.info("나의 리뷰 목록 페이지 진입");
+
+		member = (MemberVO) session.getAttribute("member");
+		log.info("id : " + member.getId());
+
+		model.addAttribute("reviews", mypageService.getMyReviewList(member.getId()));
+		return "/mypage/reviews";
+	}
 }
