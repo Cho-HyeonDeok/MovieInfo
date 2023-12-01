@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- /*
 * Template Name: Minimal
 * Template Author: Untree.co
@@ -33,8 +34,12 @@
   <link rel="stylesheet" href="../resources/assets/css/aos.css">
   <link rel="stylesheet" href="../resources/assets/css/style.css">
   <link rel="stylesheet" href="../resources/css/member/join.css">
+  <link rel="stylesheet" href="../resources/css/main.css">
 
   <title>MoviePort</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous"></script> 
   
   
 </head>
@@ -114,7 +119,7 @@
 
         </div>
         
-         <div id="h_H" class="col-md-10 col-lg-12 text-center">
+         <div id="h_H" class="col-md-10 col-lg-12">
  	  <div class="h_L">
           <ul class="h_menu">
           
@@ -182,35 +187,132 @@
   
   
   <!-- 헤더 끝 -->
+  
+ <div class="pb-0">
+    <div class="container">
+    
+	    
+			<form id="searchForm" action="/main" method="get">
+				
+				<div class="row" style="padding-top: 25px;">
+          			<div class="col-4">
+					<input id="search_place"class="form-control" type="text" name="keyword"
+						value='<c:out value="${pageMaker.cri.keyword}"></c:out>'> <input
+						type="hidden" name="pageNum"
+						value='<c:out value="${pageMaker.cri.pageNum}"></c:out>'> <input
+						type="hidden" name="amount" value='${pageMaker.cri.amount}'>
+						
+					</div>	
+				
+			
+          			<div class="col-4">
+						<button id ="search_btn" class='btn btn-black'>검색</button>
+				
+				</div>
+			
+          		<div class="col-4">
+          			<div class="sorting">
+						<select id="sortOption" class="select" name="sortOption">
+							<option>선택하세요</option>
+							<option value="totalrate">평점</option>
+							<option value="showdate" >최신순</option>
+						</select>
+						 <span class="icoArrow"><img src="https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png" alt=""></span>
+					</div>
+				</div>
+				</div>
+						
+				
+		
+				</form>
+	
+		</div>
+	
+    
+    </div>
 
+
+<!-- 상세 영화 정보 -->
 
   <div class="untree_co-section untree_co-section-4 pb-0"  id="portfolio-section">
     <div class="container">
 
 
-      <div class="relative"><div class="loader-portfolio-wrap"><div class="loader-portfolio"></div></div> </div>
+ 
       <div id="portfolio-single-holder"></div>
 
       <div class="portfolio-wrapper">
+		<div id="movie_content_wrap">
+		
+		  <div class="row mb-5 align-items-stretch">
 
-        <div id="posts" class="row">
-    
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <img src="../../resources/img/${movieInfo.title}.jpg" alt="Image" class="img-fluid">
+            </div>
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
-            <a href="portfolio-single-1.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-              <div class="overlay">
-                <span class="wrap-icon icon-link2"></span>
-                <div class="portfolio-item-content">
-                  <h3>Call of Bidulgi</h3>
-                  <p>Action, Comic</p>
+            <div class="col-lg-6 pl-lg-5">
+              <div class="row mb-3">
+                <div class="col-sm-6 col-md-6 col-lg-6 mb-4">
+                  <div class="detail-v1">
+                  	<c:out class="detail-val" value="${movieInfo.title}"></c:out>
+                  	<span class="detail-label"><c:out value="${movieInfo.genres}"></c:out></span>
+                    
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 mb-4">
+                  <div class="detail-v1">
+                    
+                    <span class="detail-val"><a href="#">Identity</a>, <a href="#">Web Design</a></span>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 mb-4">
+                  <div class="detail-v1">
+                    <span class="detail-label">Client</span>
+                    <span class="detail-val">Untree.co</span>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 mb-4">
+                  <div class="detail-v1">
+                    <span class="detail-label">Visit</span>
+                    <span class="detail-val"><a href="https://untree.co">https://untree.co/</a></span>
+                  </div>
                 </div>
               </div>
-              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dlGyzCxbBQK1U2O5o31Z1hB6erc.jpg" class="lazyload  img-fluid" alt="Images" />
-            </a>
-          </div>
-          
 
-          
+              <p>Far far away,he blind te large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+
+              <p>Evtexts it is an almost unorthographice name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+
+            </div>
+
+          </div>
+	</div>
+	
+	<form id="moveForm" method="get">
+		<input type="hidden" name="m_code" value='<c:out value="${movieInfo.m_code}"/>'>
+		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+		<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+		<input type="hidden" name="keyword" value='<c:out value="${cri.keyword}"/>'>
+	</form>
+
+	<!-- 찜 등록 및 취소 -->
+	
+	<!-- 평점 매기기 -->
+
+	<!-- 리뷰 출력 및 작성 --> <!-- 유저 기본 정보  -->
+	<form id="reviewInsert" method="post" action="/movie/insertReview">
+		<div>
+			<textarea rows="10" cols="50" name="comments"></textarea>
+			<button type="submit">리뷰 작성</button>
+		</div>
+	</form>
+
+	
+		</div>
+		
+			
+		
+ <!-- 컨텐츠 예시 
           <div class="item web branding col-sm-6 col-md-6 col-lg-3 isotope-mb-2">
             <a href="portfolio-single-1.jsp" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
               <div class="overlay">
@@ -267,20 +369,57 @@
           </div>
       
 
-     
+     -->
 
 
         </div>
       </div>
 
+<!-- 페이징 -->
+    
+     <div class="pb-0"  id="portfolio-section">
+    <div class="container">
+    	<div id="pageMaker_wrap" class="page_wrap">
+    	<div class="row">
+    		<div class="col-10">
+    		<div class="page_nation">
+			<ul id="pageMaker" class="pagination_model">
+				<!-- 이전 버튼 -->
+				<c:if test="${pageMaker.prev}">
+					<li class="pageMaker_btn prev"><a
+						href="${pageMaker.pageStart - 1}">◁</a></li>
+				</c:if>
 
-        <!-- </div>
-        </div> -->
-      </div>
-    </div>
+				<!-- 페이지 번호 -->
+				<c:forEach begin="${pageMaker.pageStart}" end="${pageMaker.pageEnd}"
+					var="num">
+					<li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? "active":""}">
+						<a class="num"  href="${num}">${num} </a>
+					</li>
+				</c:forEach>
+
+				<!-- 다음 버튼 -->
+				<c:if test="${pageMaker.next}">
+					<li class="pageMaker_btn next"><a
+						href="${pageMaker.pageEnd + 1}">▷</a></li>
+				</c:if>
+			</ul>
+			</div>
+			</div>
+			</div>
+		</div>
+
+		<form id="moveForm" action="/main" method="get">
+			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+			<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+		</form>
+		
+		</div>
+		</div>
 
 
-
+<!--  
 
     <div class="untree_co-section pb-0" id="services-section">
       <div class="container">
@@ -363,56 +502,7 @@
     </div>
 
 
-    <div class="untree_co-section pb-0">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col-lg-7 text-center mx-auto">
-            <h2 class="section-heading gsap-reveal-hero mb-0"><strong>My Skillset</strong></h2>
-            <p class="gsap-reveal-hero">The Big Oxmox advised her not to do so, because there were thousands of bad Commas.</p>
-            <div class="wave gsap-reveal-hero" >
-              <svg>
-                <path d="M10,10 L50,100 L90,50" stroke="#0389ff"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="0">
-            <div class="progressbar" data-animate="false">
-              <div class="circle" data-percent="98">
-                <div class="number"></div>
-                <p class="caption">WordPress</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="progressbar" data-animate="false">
-              <div class="circle" data-percent="95">
-                <div class="number"></div>
-                <p class="caption">Web Design</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="progressbar" data-animate="false">
-              <div class="circle" data-percent="89">
-                <div class="number"></div>
-                <p class="caption">Web/Mobile App</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
-            <div class="progressbar" data-animate="false">
-              <div class="circle" data-percent="85">
-                <div class="number"></div>
-                <p class="caption">Photoshop</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
     <div class="untree_co-section testimonial-wrap">
       <div class="container">
@@ -447,54 +537,23 @@
                 </blockquote>
               </div>
             </div>
+            
+            -->
             <!-- END .item -->
-
-            <div class="item">
-              <div class="testimonial-v1">
-                <img src="../resources/assets/images/person_2.jpg" alt="Image" class="img-fluid">
-                <div class="mb-4">
-                  <h3>Jenny Wilson</h3>
-                  <span class="caption">CEO &amp; Co-Founder</span>
-                </div>
-                <blockquote>
-                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                </blockquote>
-              </div>
-            </div>
-            <!-- END .item -->
-
-            <div class="item">
-              <div class="testimonial-v1">
-                <img src="../resources/assets/images/person_3.jpg" alt="Image" class="img-fluid">
-                <div class="mb-4">
-                  <h3>Dan Anderson</h3>
-                  <span class="caption">CEO &amp; Co-Founder</span>
-                </div>
-                <blockquote>
-                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                </blockquote>
-              </div>
-            </div>
-            <!-- END .item -->
-
-            <div class="item">
-              <div class="testimonial-v1">
-                <img src="../resources/assets/images/person_1.jpg" alt="Image" class="img-fluid">
-                <div class="mb-4">
-                  <h3>James Smith</h3>
-                  <span class="caption">CEO &amp; Co-Founder</span>
-                </div>
-                <blockquote>
-                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                </blockquote>
-              </div>
-            </div>
-            <!-- END .item -->
+<!--  
+         
+<!--
+          
+<!-- 
+           
+            <!-- 
           </div>
         </div>
       </div>
     </div>
-
+ -->
+ 
+<!-- 
     <div class="untree_co-section">
       <div class="container">
         <div class="row mb-5">
@@ -602,11 +661,12 @@
         </div>
       </div>
     </div>
-
-    <div class="site-footer">
+ -->
+<!-- footer -->
+    <div class="site-footer" >
       <div class="container">
-
-        <div class="row">
+		
+        <div class="row" id="footer_line">
           <div class="col-lg-3">
             <div class="widget">
               <h3>Home</h3>
@@ -718,6 +778,78 @@
 
 
     <script src="../resources/assets/js/custom.js"></script>
+    <script>
+		/* 페이지 이동 버튼 */
+		let moveForm = $('#moveForm');
+		$(".pageMaker_btn a").on("click", function(e) {
+
+			e.preventDefault();
+
+			moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+
+			moveForm.submit();
+		});
+
+		/* 작가 검색 버튼 동작 */
+		let searchForm = $('#searchForm');
+		$("#searchForm button").on("click", function(e) {
+
+			e.preventDefault();
+
+			/* 검색 키워드 유효성 검사 */
+			if (!searchForm.find("input[name='keyword']").val()) {
+				alert("키워드를 입력하십시오");
+				return false;
+			}
+
+			searchForm.find("input[name='pageNum']").val("1");
+
+			searchForm.submit();
+		});
+		
+
+		/* 정렬 옵션 변경 이벤트 */
+	    $("#sortOption").on("change", function () {
+	        // 선택된 옵션 값을 가져옴
+	        let selectedOption = $(this).val();
+	
+	       	// 정렬 처리
+	        if (selectedOption === "totalrate") {
+	            // 평점순으로 정렬
+	            searchForm.append('<input type="hidden" name="sortOption" value="totalrate">');
+	        }  else if (selectedOption === "showdate") {
+	            // 최신순으로 정렬
+	            searchForm.append('<input type="hidden" name="sortOption" value="showdate">');
+	        } else {
+	            // 다른 옵션을 선택하거나 기본 옵션을 선택한 경우 hidden input 제거
+	            searchForm.find("input[name='sortOption']").remove();
+	        }
+	
+	        // 정렬을 적용하기 위해 폼 제출
+	        searchForm.submit();
+	    });
+		
+		
+
+		/* 작가 상세 페이지 이동 */
+		$(".move").on("click", function(e) {
+			
+			e.preventDefault();
+			
+			moveForm.append("<input type='hidden' name='m_code' value='"+ $(this).attr("href") + "'>");
+			moveForm.attr("action", "/movie/movieDetail");
+			moveForm.submit();
+			moveForm.find("input[name='m_code']").remove();
+		});
+	</script>
+
+	<script type="text/javascript">
+		var msg = "${msg}";
+
+		if (msg != "") {
+			alert(msg);
+		}
+	</script>
     
   </body>
 

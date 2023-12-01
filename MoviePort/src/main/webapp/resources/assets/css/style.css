@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "PT Mono", monospace, 'IBMPlexSansKR-Regular';
+  font-family:'IBMPlexSansKR-Regular';
   line-height: 1.6;
   background: #ffffff;
   overflow-x: hidden;
@@ -732,6 +732,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
     transition: .3s all ease-in-out; }
 
 .gsap-reveal-img {
+	box-shadow: 3px 3px #ababab;
+
+	
   line-height: 0; }
   .gsap-reveal-img .reveal-wrap {
     position: relative;
