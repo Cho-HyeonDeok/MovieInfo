@@ -1,10 +1,13 @@
 package com.movieport.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movieport.mapper.MypageMapper;
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 
 @Service
 public class MypageServiceImpl implements MypageService {
@@ -55,6 +58,12 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public void deleteMember(MemberVO member) throws Exception {
 		mypageMapper.deleteMember(member);
+	}
+
+	// 내가 작성한 리뷰 리스트 불러오기
+	@Override
+	public List<ReviewVO> getMyReviewList(String id) throws Exception {
+		return mypageMapper.getMyReviewList(id);
 	}
 
 }
