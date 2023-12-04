@@ -21,23 +21,19 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<MovieVO> movieGetList(Criteria cri) throws Exception {
-		
 		return movieMapper.moviesGetList(cri);
 	}
 	
 	/* 영화 총 개수 */
 	@Override
 	public int movieGetTotal(Criteria cri) throws Exception {
-		
 		log.info("(service) movieGetTotal()........" + cri);
-		
 		return movieMapper.movieGetTotal(cri);
 	}
 
 	/* 영화 상세 페이지 */
 	@Override
 	public MovieVO movieGetDetail(int m_code) throws Exception {
-
 		log.info("movieGetDetail........" + m_code);
 		return movieMapper.movieGetDetail(m_code);
 	}
@@ -45,7 +41,6 @@ public class MovieServiceImpl implements MovieService {
 	// 영화코드, 영화제목 불러오기
 	@Override
 	public MovieVO movieGetCodeTitle(String m_code) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -71,6 +66,18 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public void movieSetRateCount(int m_code) throws Exception {
 		movieMapper.movieSetRateCount(m_code);
+	}
+
+	/* 장르별 영화 리스트 */
+	@Override
+	public List<MovieVO> moviesGetGenreList(Criteria cri) throws Exception {
+		return movieMapper.moviesGetGenreList(cri);
+	}
+
+	/* 장르별 영화 총 수 */
+	@Override
+	public int movieGetGenreTotal(Criteria cri) throws Exception {
+		return movieMapper.movieGetGenreTotal(cri);
 	}
 
 	

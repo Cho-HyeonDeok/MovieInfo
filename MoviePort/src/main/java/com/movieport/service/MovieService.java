@@ -31,4 +31,10 @@ public interface MovieService {
 	/* 영화 총 평점 인원 수 반영 */
 	public void movieSetRateCount(int m_code) throws Exception;
 	
+	/* 장르별 영화 목록 */
+	public List<MovieVO> moviesGetGenreList(Criteria cri) throws Exception;
+	
+	/* 장르별 영화 총 개수 */
+	public int movieGetGenreTotal(Criteria cri) throws Exception;
+	
 }
