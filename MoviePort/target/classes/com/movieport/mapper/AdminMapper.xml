@@ -24,43 +24,6 @@
 		where id=#{id}
 	</update>
 	
-
-	<!-- 영화리스트 불러오기 -->
-	<select id="movieList" resultType="com.movieport.model.MovieVO">
-		select * from movie
-	</select>
-	
-	<!-- 영화상세정보 불러오기 -->
-	<select id="movieDetail"
-		resultType="com.movieport.model.MovieVO">
-		select * from movie where m_code = #{m_code}
-	</select>
-	
-	<!-- 영화 추가 하기 -->
-	<insert id="movieEnroll">
-		,insert into movie(title, runtime, thumb, content, showdate, type, trailer, adult, image, genres, language, original_title, video)
-		values(#{title}, #{runtime}, #{thumb}, #{content}, #{showdate}, #{type}, #{trailer}, #{adult}, #{image}, #{genres}, #{language}, #{original_title}, #{video})
-	</insert>
-	
-	<!-- 영화정보 수정하기 -->
-	<update id="movieInfoUpdate">
-		update movie set
-		thumb =#{thumb},
-		title =#{title},
-		original_title =#{original_title},
-		language =#{language},
-		genres =#{genres},
-		video =#{video},
-		showdate =#{showdate},
-		type =#{type},
-		content =#{content}
-		where m_code=#{m_code}
-	</update>
-	
-	<delete id="movieDelete">
-		delete from movie where
-		m_code=#{m_code}
-
 	<!-- 리뷰 리스트 불러오기 -->
 	<select id="getReviewList"
 		resultType="com.movieport.model.ReviewVO">
@@ -76,6 +39,5 @@
 	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview">
 		delete from review where reviewid=#{reviewid}
-
 	</delete>
 </mapper>
