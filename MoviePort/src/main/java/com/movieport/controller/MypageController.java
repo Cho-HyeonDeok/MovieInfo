@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 import com.movieport.service.MypageService;
 
 @Controller
@@ -28,19 +30,19 @@ public class MypageController {
 
 	// 마이페이지 메인으로 이동 및 회원정보 출력
 	@GetMapping("/mypageMain")
-	public String memberInfoGET(HttpSession session, Model model, MemberVO member) throws Exception {
+	public void memberInfoGET(HttpSession session, Model model, MemberVO member) throws Exception {
 		log.info("마이페이지 메인 진입");
 
 		member = (MemberVO) session.getAttribute("member");
 		log.info("id : " + member.getId());
 
 		model.addAttribute("info", mypageService.memberInfo(member.getId()));
-		return "/mypage/mypageMain";
 	}
 
 	// 회원정보 수정하기
 	@PostMapping("/myInfoUpdate")
-	public String myInfoUpdatePOST(MemberVO member, Model model, HttpSession session) throws Exception {
+	public String myInfoUpdatePOST(MemberVO member, Model model, HttpSession session, RedirectAttributes rttr)
+			throws Exception {
 		log.info("회원정보 수정 동작");
 
 		String nickname = member.getNickname();
@@ -63,25 +65,25 @@ public class MypageController {
 
 		log.info("수정 성공");
 		session.invalidate();
-		model.addAttribute("msg", "회원정보 수정이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
-		return "/main";
+		rttr.addFlashAttribute("msg", "회원정보 수정이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
+		return "redirect:/main";
 	}
 
 	// 비밀번호 변경 페이지로 이동
 	@GetMapping("/pwdUpdate")
-	public String pwdUpdateGET(HttpSession session, Model model, MemberVO member) throws Exception {
+	public void pwdUpdateGET(HttpSession session, Model model, MemberVO member) throws Exception {
 		log.info("비밀번호 변경 페이지 진입");
 
 		member = (MemberVO) session.getAttribute("member");
 		log.info("id : " + member.getId());
 
 		model.addAttribute("info", mypageService.memberInfo(member.getId()));
-		return "/mypage/pwdUpdate";
 	}
 
 	// 비밀번호 변경하기
 	@PostMapping("/pwdUpdate")
-	public String pwdUpdatePOST(MemberVO member, Model model, HttpSession session) throws Exception {
+	public String pwdUpdatePOST(MemberVO member, Model model, HttpSession session, RedirectAttributes rttr)
+			throws Exception {
 		log.info("비밀번호 수정 동작");
 
 		String pwd = member.getPwd();
@@ -109,25 +111,25 @@ public class MypageController {
 
 		log.info("수정 성공");
 		session.invalidate();
-		model.addAttribute("msg", "비밀번호 변경이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
-		return "/main";
+		rttr.addFlashAttribute("msg", "비밀번호 변경이 완료되었습니다.\\n다시 로그인 후 서비스를 이용해 주세요.");
+		return "redirect:/main";
 	}
 
 	// 회원탈퇴 페이지로 이동
 	@GetMapping("/resign")
-	public String resignGET(HttpSession session, Model model, MemberVO member) throws Exception {
+	public void resignGET(HttpSession session, Model model, MemberVO member) throws Exception {
 		log.info("회원탈퇴 페이지 진입");
 
 		member = (MemberVO) session.getAttribute("member");
 		log.info("id : " + member.getId());
 
 		model.addAttribute("info", mypageService.memberInfo(member.getId()));
-		return "/mypage/resign";
 	}
 
 	// 회원탈퇴
 	@PostMapping("/deleteMember")
-	public String deleteMemberPOST(HttpSession session, MemberVO member, Model model) throws Exception {
+	public String deleteMemberPOST(HttpSession session, MemberVO member, Model model, RedirectAttributes rttr)
+			throws Exception {
 		log.info("회원탈퇴 동작");
 
 		// 세션에 있는 member를 가져와 member 변수에 넣어준다.
@@ -143,8 +145,8 @@ public class MypageController {
 			log.info("회원탈퇴 성공");
 			mypageService.deleteMember(member);
 			session.invalidate();
-			model.addAttribute("msg", "회원탈퇴가 완료되었습니다.\\n더욱 발전하는 MoviePort가 되겠습니다.");
-			return "/main";
+			rttr.addFlashAttribute("msg", "회원탈퇴가 완료되었습니다.\\n더욱 발전하는 MoviePort가 되겠습니다.");
+			return "redirect:/main";
 		} else {
 			log.info("회원탈퇴 실패");
 			model.addAttribute("msg", "회원탈퇴 실패\\n이메일을 확인해주세요.");
@@ -159,13 +161,61 @@ public class MypageController {
 
 	// 나의 리뷰 목록 페이지로 이동 및 출력
 	@GetMapping("/reviews")
-	public String myReviewsGET(HttpSession session, Model model, MemberVO member) throws Exception {
+	public void myReviewsGET(HttpSession session, Model model, MemberVO member) throws Exception {
 		log.info("나의 리뷰 목록 페이지 진입");
 
 		member = (MemberVO) session.getAttribute("member");
 		log.info("id : " + member.getId());
 
 		model.addAttribute("reviews", mypageService.getMyReviewList(member.getId()));
-		return "/mypage/reviews";
+	}
+
+	// 나의 리뷰 상세 페이지로 이동
+	@GetMapping("/reviewsDetail")
+	public void myReviewsDetailGET(Model model, int reviewid) throws Exception {
+		log.info("나의 리뷰 상세 페이지 진입");
+
+		model.addAttribute("detail", mypageService.getMyReviewListDetail(reviewid));
+		log.info("reviewid : " + mypageService.getMyReviewListDetail(reviewid));
+	}
+
+	// 리뷰 수정
+	@PostMapping("/updateReview")
+	public String updateReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
+		log.info("리뷰 수정 동작");
+
+		Double rate = review.getRate();
+		String comments = review.getComments();
+
+		log.info("입력한 평점 : " + rate);
+		log.info("입력한 내용 : " + comments);
+
+		int result = mypageService.updateReview(review);
+		log.info("result : " + result);
+
+		if (result != 1) { // 리뷰 업데이트 실패시
+			log.info("수정 실패");
+			rttr.addFlashAttribute("msg", "리뷰 수정에 실패하였습니다.");
+			return "redirect:/mypage/reviews";
+		}
+
+		log.info("수정 성공");
+		rttr.addFlashAttribute("msg", "리뷰가 수정되었습니다.");
+		return "redirect:/mypage/reviews";
+	}
+
+	// 리뷰 삭제
+	@PostMapping("/deleteReview")
+	public String deleteReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
+		log.info("리뷰 삭제 동작");
+
+		int reviewid = review.getReviewid();
+		log.info("삭제할 reviewid : " + reviewid);
+
+		mypageService.deleteReview(review);
+		rttr.addFlashAttribute("msg", "리뷰가 삭제되었습니다.");
+		log.info("삭제 성공");
+
+		return "redirect:/mypage/reviews";
 	}
 }
