@@ -10,7 +10,7 @@ public interface MovieMapper {
 	/* 영화 목록 */	
 	public List<MovieVO> moviesGetList(Criteria cri);
 
-	/* 작가 총 수 */
+	/* 영화 총 수 */
 	public int movieGetTotal(Criteria cri);
 	
 	/* 영화 상세 */
@@ -30,11 +30,10 @@ public interface MovieMapper {
 	
 	/* 영화 총 평점 인원 수 반영 */
 	public void movieSetRateCount(int m_code);
-
-	/* 평점순으로 영화 정렬 */
-	public List<MovieVO> sortMovieTotalrate(Criteria cri);
 	
-	/* 최신순으로 영화 정렬 */
-	public List<MovieVO> latestMovie(Criteria cri);
-
+	/* 장르별 영화 목록 */
+	public List<MovieVO> moviesGetGenreList(Criteria cri);
+	
+	/* 장르별 영화 수 */
+	public int movieGetGenreTotal(Criteria cri);
 }

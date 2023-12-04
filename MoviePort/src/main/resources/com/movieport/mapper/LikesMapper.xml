@@ -3,4 +3,32 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.movieport.mapper.LikesMapper">
 
+	 
+	 <!-- 좋아요 삽입 -->
+	 <insert id="LikesInsert">
+	 	insert into likes(id, m_code, thumb, title) 
+	 	values(#{id}, #{m_code}, #{thumb}, #{title})
+	 </insert>
+	 
+	 <!-- 좋아요 삭제 -->
+	 <delete id="LikesDelete">
+	 	delete from likes where l_num = #{l_num}
+	 </delete>
+	 
+	 <!-- 좋아요 목록 -->
+	 <select id="LikesSelectList" resultType="com.movieport.model.LikesVO">
+	 	
+	 	select a.l_num, a.id, a.m_code, a.thumb, a.title
+	 	from likes a left outer join movie b on a.m_code = b.m_code
+	 	where id = #{id}
+	 	
+	 </select>
+	 
+	 <!-- 좋아요 확인 -->
+	 <select id="checkLikes" resultType="com.movieport.model.LikesVO">
+	 
+	 	select * from likes
+	 	where id = #{id} and m_code = #{m_code}
+	 </select>
+
 </mapper>

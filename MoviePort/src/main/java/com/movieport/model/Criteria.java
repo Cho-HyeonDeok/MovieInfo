@@ -13,6 +13,9 @@ public class Criteria {
     /* 검색 키워드 */
     private String keyword;
     
+    /* 장르 키워드 */
+    private String genre;
+    
     /* Criteria 생성자 */
     public Criteria(int pageNum, int amount) {
         this.pageNum = pageNum;
@@ -61,9 +64,19 @@ public class Criteria {
 		this.keyword = keyword;
 	}
 
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", type=" + type + ", keyword=" + keyword + "]";
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", type=" + type + ", keyword=" + keyword
+				+ ", genre=" + genre + "]";
 	}
     
     

@@ -24,6 +24,7 @@
 		where id=#{id}
 	</update>
 	
+
 	<!-- 영화리스트 불러오기 -->
 	<select id="movieList" resultType="com.movieport.model.MovieVO">
 		select * from movie
@@ -59,5 +60,22 @@
 	<delete id="movieDelete">
 		delete from movie where
 		m_code=#{m_code}
+
+	<!-- 리뷰 리스트 불러오기 -->
+	<select id="getReviewList"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review
+	</select>
+
+	<!-- 리뷰 상세 -->
+	<select id="getReviewListDetail"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review where reviewid = #{reviewid}
+	</select>
+
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview">
+		delete from review where reviewid=#{reviewid}
+
 	</delete>
 </mapper>
