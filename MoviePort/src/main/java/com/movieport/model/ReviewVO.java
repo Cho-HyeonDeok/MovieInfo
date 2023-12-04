@@ -12,9 +12,6 @@ public class ReviewVO {
 	// 영화코드
 	private String m_code;
 
-	// 영화제목
-	private String title;
-
 	// 리뷰내용
 	private String comments;
 
@@ -52,14 +49,6 @@ public class ReviewVO {
 
 	public void setM_code(String m_code) {
 		this.m_code = m_code;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public String getComments() {
@@ -104,9 +93,8 @@ public class ReviewVO {
 
 	@Override
 	public String toString() {
-		return "ReviewVO [reviewid=" + reviewid + ", id=" + id + ", m_code=" + m_code + ", title=" + title
-				+ ", comments=" + comments + ", rate=" + rate + ", blind=" + blind + ", spoiler=" + spoiler
-				+ ", writedate=" + writedate + "]";
+		return "ReviewVO [reviewid=" + reviewid + ", id=" + id + ", m_code=" + m_code + ", comments=" + comments
+				+ ", rate=" + rate + ", blind=" + blind + ", spoiler=" + spoiler + ", writedate=" + writedate + "]";
 	}
 
 }
