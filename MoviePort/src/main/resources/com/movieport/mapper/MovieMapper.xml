@@ -27,7 +27,7 @@
 
 	</select>
 	
-	<!-- 작가 수 -->
+	<!-- 영화 수 -->
 	<select id="movieGetTotal" resultType="int">
 	
 		select count(*) from movie
@@ -35,6 +35,49 @@
 		<if test="keyword != null">
 			where title like '%' || #{keyword} || '%'
 		</if>
+	
+	</select>
+	
+	<!-- 영화 리스트 -->
+	<select id="moviesGetGenreList"
+		resultType="com.movieport.model.MovieVO">
+		<![CDATA[
+
+			select m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count  from(
+				select /*+INDEX_DESC(movie SYS_C008375) */
+					rownum as rn, m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count 
+				from movie 	
+				where
+		]]>
+
+		<if test="keyword != null">
+			title like '%'||#{keyword}||'%' and
+		</if>
+		
+		<if test="genre != null">
+			genres like '%' || #{genre} || '%' and
+		</if>
+		
+		<![CDATA[
+				rownum <= #{pageNum}*#{amount}
+            	)
+        	where rn > (#{pageNum} - 1) * #{amount} 
+		]]>
+
+	</select>
+	
+	<!-- 장르별 영화 수 -->
+	<select id="movieGetGenreTotal" resultType="int">
+	
+		select count(*) from movie
+		where 
+		<if test="genre != null">
+			genres like '%' || #{genre} || '%'
+		</if>
+		<if test="keyword != null">
+			and title like '%' || #{keyword} || '%'
+		</if>
+		
 	
 	</select>
 	
@@ -72,21 +115,9 @@
 		where m_code = #{m_code}
 	</select>
 	
-	<!-- 리뷰 리스트 불러오기 -->
-	<select id="getReviewList"
-		resultType="com.movieport.model.ReviewVO">
-		select * from review where m_code = #{m_code}
-	</select>
-
-	<!-- 리뷰등록 -->
-	<insert id="insertReview">
-		insert into review(id, m_code, title, rate, comments)
-		values(#{id}, #{m_code}, #{title}, #{rate}, #{comments})
-	</insert>
-
-	<!-- 리뷰 존재 체크 -->
-	<select id="checkReview" resultType="int">
-		select reviewid from review
-		where id = #{id} and m_code = #{m_code}
-	</select>
+	
+	
+	
+	
+	
 </mapper>
