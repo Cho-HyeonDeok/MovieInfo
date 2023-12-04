@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.movieport.mapper.AdminMapper;
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -37,5 +38,23 @@ public class AdminServiceImpl implements AdminService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	// 리뷰 리스트 불러오기
+	@Override
+	public List<ReviewVO> getReviewList() throws Exception {
+		return adminMapper.getReviewList();
+	}
+
+	// 리뷰 상세
+	@Override
+	public ReviewVO getReviewListDetail(int reviewid) throws Exception {
+		return adminMapper.getReviewListDetail(reviewid);
+	}
+
+	// 리뷰 삭제
+	@Override
+	public void deleteReview(ReviewVO review) throws Exception {
+		adminMapper.deleteReview(review);
 	}
 }

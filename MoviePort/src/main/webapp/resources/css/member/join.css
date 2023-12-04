@@ -37,15 +37,23 @@
 
 #h_H{
 	
-	width:100%;		
+	width:100%;	
+	text-align: center;
+		
+}
+
+.h_L{
+	
+
 }
 
 
 
 
 .h_menu{
+
 	border: 1px solid black;
-	height: 60px;
+	height:60px;
 	padding-top: 15px;
 	margin-top: 60px;
 	box-shadow: 5px 5px;
@@ -55,15 +63,15 @@
 	 font-size: 14pt;
 	
 	
+	
 }
 
 
 #bidulgi{
 	color: black;
-	float: left;
-
-	padding-left: 5%;
-	padding-right: 5%;
+	float:left;
+	margin-left: 5%; 
+	margin-right: 5%; 
 	
 	
 }

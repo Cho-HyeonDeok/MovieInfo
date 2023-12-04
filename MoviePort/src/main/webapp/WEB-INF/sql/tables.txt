@@ -153,6 +153,7 @@ create table review(
     reviewid number generated as identity (start with 1) primary key,    --리뷰번호(자동증가)
     id varchar2(40) references member(id),                            --회원아이디(member테이블의 기본키인 id)
     m_code varchar2(20) references movie(m_code),                     --영화코드(movie테이블의 기본키인 m_code)
+    title varchar2(100),                                              --영화제목
     comments varchar2(1000),                                          --리뷰내용
     rate number(2,1),                                                 --평점
     blind char(1) default '0',                                        --리뷰블라인드유무(0:블라인드X,1:블라인드O)

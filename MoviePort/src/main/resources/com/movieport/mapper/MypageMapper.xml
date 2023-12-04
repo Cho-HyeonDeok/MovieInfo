@@ -27,4 +27,28 @@
 		delete from member where
 		id=#{id} and email = #{email}
 	</delete>
+
+
+	<!-- 내가 작성한 리뷰 리스트 불러오기 -->
+	<select id="getMyReviewList"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review where id = #{id}
+	</select>
+
+	<!-- 리뷰 상세 -->
+	<select id="getMyReviewListDetail"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review where reviewid = #{reviewid}
+	</select>
+
+	<!-- 리뷰 수정 -->
+	<update id="updateReview">
+		update review set rate=#{rate}, comments=#{comments}
+		where reviewid=#{reviewid}
+	</update>
+
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview">
+		delete from review where reviewid=#{reviewid}
+	</delete>
 </mapper>

@@ -20,11 +20,22 @@ public class BoardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 	
-	@GetMapping("/main")
-	public void goMain(){
+
+	@GetMapping("/main2")
+	public void goMain2(){
+
 		log.info("게시판 진입");
 		
 	}
+  
+	@GetMapping("/main")
+	public void goMain(){
+
+		log.info("게시판 진입");
+		
+	}
+	
+
 	
 	
 	@GetMapping("/bidulgi")
@@ -65,6 +76,45 @@ public class BoardController {
 		
 	}
 	
+
+	@GetMapping("/login2")
+	public void goLogin2(){
+		log.info("게시판 진입");
+		
+	}
+	@GetMapping("/footer")
+	public void footer(){
+		log.info("게시판 진입");
+		
+	}
+	
+	@GetMapping("/header")
+	public void header(){
+		log.info("게시판 진입");
+		
+	}
+	
+	@GetMapping("/mypageMain2")
+	public void mypageMain2(){
+		log.info("게시판 진입");
+		
+	}
+	
+	@GetMapping("/pwdUpdate2")
+	public void pwdUpdate2(){
+		log.info("게시판 진입");
+		
+	}
+	
+	@GetMapping("/movie_detail_frame")
+	public void movieDetail(){
+		log.info("게시판 진입");
+		
+	}
+	
+	
+	
+
 
 
 	

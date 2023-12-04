@@ -115,9 +115,21 @@
 		where m_code = #{m_code}
 	</select>
 	
-	
-	
-	
-	
-	
+	<!-- 리뷰 리스트 불러오기 -->
+	<select id="getReviewList"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review where m_code = #{m_code}
+	</select>
+
+	<!-- 리뷰등록 -->
+	<insert id="insertReview">
+		insert into review(id, m_code, title, rate, comments)
+		values(#{id}, #{m_code}, #{title}, #{rate}, #{comments})
+	</insert>
+
+	<!-- 리뷰 존재 체크 -->
+	<select id="checkReview" resultType="int">
+		select reviewid from review
+		where id = #{id} and m_code = #{m_code}
+	</select>
 </mapper>

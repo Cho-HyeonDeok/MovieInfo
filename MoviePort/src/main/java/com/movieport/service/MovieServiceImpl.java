@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.movieport.mapper.MovieMapper;
 import com.movieport.model.Criteria;
+import com.movieport.model.MemberVO;
 import com.movieport.model.MovieVO;
+import com.movieport.model.ReviewVO;
 
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -29,6 +31,7 @@ public class MovieServiceImpl implements MovieService {
 	public int movieGetTotal(Criteria cri) throws Exception {
 		log.info("(service) movieGetTotal()........" + cri);
 		return movieMapper.movieGetTotal(cri);
+
 	}
 
 	/* 영화 상세 페이지 */
@@ -68,6 +71,7 @@ public class MovieServiceImpl implements MovieService {
 		movieMapper.movieSetRateCount(m_code);
 	}
 
+
 	/* 장르별 영화 리스트 */
 	@Override
 	public List<MovieVO> moviesGetGenreList(Criteria cri) throws Exception {
@@ -80,8 +84,39 @@ public class MovieServiceImpl implements MovieService {
 		return movieMapper.movieGetGenreTotal(cri);
 	}
 
+	/* 높은 평점순 정렬 */
+	@Override
+	public List<MovieVO> sortMovieTotalrate(Criteria cri) throws Exception {	
+		return movieMapper.sortMovieTotalrate(cri);
+	};
 	
-	
-	
-	
+	/* 최신순으로 영화 정렬 */
+	@Override
+	public List<MovieVO> latestMovie(Criteria cri) throws Exception {	
+		return movieMapper.latestMovie(cri);
+	}
+
+	// 리뷰 리스트 불러오기
+	@Override
+	public List<ReviewVO> getReviewList(int m_code) throws Exception {
+		return movieMapper.getReviewList(m_code);
+	}
+
+	// 리뷰 등록
+	@Override
+	public void insertReview(ReviewVO review) throws Exception {
+		movieMapper.insertReview(review);
+	}
+
+	// 리뷰 존재 체크
+	@Override
+	public String checkReview(ReviewVO review) throws Exception {
+		Integer result = movieMapper.checkReview(review);
+		
+		if (result == null) {
+			return "0";
+		} else {
+			return "1";
+		}
+	}
 }
