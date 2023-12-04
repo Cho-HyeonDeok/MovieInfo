@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movieport.mapper.MovieMapper">
+
+	<!-- 영화 리스트 -->
+	<select id="moviesGetList"
+		resultType="com.movieport.model.MovieVO">
+		<![CDATA[
+
+			select m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count  from(
+				select /*+INDEX_DESC(movie SYS_C008375) */
+					rownum as rn, m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count 
+				from movie 	
+				where
+		]]>
+
+		<if test="keyword != null">
+			title like '%'||#{keyword}||'%' and
+		</if>
+		
+		<![CDATA[
+				rownum <= #{pageNum}*#{amount}
+            	)
+        	where rn > (#{pageNum} - 1) * #{amount}
+		]]>
+
+	</select>
+	
+	<!-- 영화 수 -->
+	<select id="movieGetTotal" resultType="int">
+	
+		select count(*) from movie
+		
+		<if test="keyword != null">
+			where title like '%' || #{keyword} || '%'
+		</if>
+	
+	</select>
+	
+	<!-- 영화 리스트 -->
+	<select id="moviesGetGenreList"
+		resultType="com.movieport.model.MovieVO">
+		<![CDATA[
+
+			select m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count  from(
+				select /*+INDEX_DESC(movie SYS_C008375) */
+					rownum as rn, m_code, title, runtime, thumb, content, totalrate, likes, hits, showdate, type, trailer, ranking, adult, image, genres, language, original_title, popularity, video, rate_count 
+				from movie 	
+				where
+		]]>
+
+		<if test="keyword != null">
+			title like '%'||#{keyword}||'%' and
+		</if>
+		
+		<if test="genre != null">
+			genres like '%' || #{genre} || '%' and
+		</if>
+		
+		<![CDATA[
+				rownum <= #{pageNum}*#{amount}
+            	)
+        	where rn > (#{pageNum} - 1) * #{amount} 
+		]]>
+
+	</select>
+	
+	<!-- 장르별 영화 수 -->
+	<select id="movieGetGenreTotal" resultType="int">
+	
+		select count(*) from movie
+		where 
+		<if test="genre != null">
+			genres like '%' || #{genre} || '%'
+		</if>
+		<if test="keyword != null">
+			and title like '%' || #{keyword} || '%'
+		</if>
+		
+	
+	</select>
+	
+	<!-- 영화 상세 -->
+	<select id="movieGetDetail" resultType="com.movieport.model.MovieVO">
+		select * from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화코드, 영화이름 불러오기 -->
+	<select id="movieGetCodeTitle" >
+		select m_code, title from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 평점 -->
+	<select id="movieGetRate" resultType="double">
+		select totalrate from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 총 평점 인원 수 -->
+	<select id="movieGetRateCount" resultType="int">
+		select rate_count from movie where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 평점 반영 -->
+	<select id="movieSetRate">
+		update movie
+		set totalrate = #{totalrate}
+		where m_code = #{m_code}
+	</select>
+	
+	<!-- 영화 총 평점 인원 수 반영 -->
+	<select id="movieSetRateCount">
+		update movie
+		set rate_count = #{rate_count}
+		where m_code = #{m_code}
+	</select>
+	
+	
+	
+	
+	
+	
+</mapper>

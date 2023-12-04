@@ -1,0 +1,15 @@
+// 오라클 버전 : 21XE
+
+// DBA 시스템 계정 로그인
+sqlplus / as sysdba
+
+// 오라클 12c이상에서 계정명 c##없이 만들기
+alter session set "_ORACLE_SCRIPT"=true;
+
+// 계정 생성(사용자명:spring, 비밀번호:spring)
+create user spring identified by spring;
+
+// 권한 부여
+grant connect, resource, dba to spring;
+
+commit;
