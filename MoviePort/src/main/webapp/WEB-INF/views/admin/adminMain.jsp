@@ -11,7 +11,7 @@
 	<ul>
 		<li><a href="/admin/memberList">회원리스트</a></li>
 		<li><a href="/admin/movies">영화리스트</a></li>
-		<li><a href="/admin/reviewList">리뷰리스트</a></li>
+		<li><a href="/admin/reviews">리뷰리스트</a></li>
 	</ul>
 </body>
 </html>
