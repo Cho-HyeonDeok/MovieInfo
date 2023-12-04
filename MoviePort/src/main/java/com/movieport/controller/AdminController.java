@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 import com.movieport.service.AdminService;
 
 @Controller
@@ -84,9 +86,24 @@ public class AdminController {
 	// 리뷰 상세 페이지로 이동
 	@GetMapping("/reviewDetail")
 	public void reviewDetailGET(int reviewid, Model model) throws Exception {
-		log.info("회원 상세 정보 페이지 진입");
+		log.info("리뷰 상세 페이지 진입");
 
 		model.addAttribute("detail", adminService.getReviewListDetail(reviewid));
 		log.info("상세 : " + adminService.getReviewListDetail(reviewid));
+	}
+
+	// 리뷰 삭제
+	@PostMapping("/deleteReview")
+	public String deleteReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
+		log.info("리뷰 삭제 동작");
+
+		int reviewid = review.getReviewid();
+		log.info("삭제할 reviewid : " + reviewid);
+
+		adminService.deleteReview(review);
+		rttr.addFlashAttribute("msg", "리뷰가 삭제되었습니다.");
+		log.info("삭제 성공");
+
+		return "redirect:/admin/reviewList";
 	}
 }
