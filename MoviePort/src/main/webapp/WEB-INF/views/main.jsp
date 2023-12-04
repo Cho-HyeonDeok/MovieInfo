@@ -31,6 +31,23 @@
 		</div>
 	</c:if>
 
+	<div id="genre_navi">
+		<form id="genreForm" action="/movie/movieCategory" method="get">
+			<div id="genre_input">
+				<a class="genre_move" href='액션'> 
+				액션
+				</a> <a class="genre_move" href='드라마'>
+				드라마 
+				</a> <a class="genre_move" href='스릴러'>
+				스릴러
+				</a>
+			</div>
+			
+			
+		</form>
+	</div>
+
+
 	<!-- 영화 검색 기능 -->
 	<div class="search_wrap">
 		<form id="searchForm" action="/main" method="get">
@@ -66,10 +83,10 @@
 						</tr>
 					</thead>
 					<c:forEach items="${list}" var="list">
-            			<input type="hidden" name="m_code" value="${m_code}">
+						<input type="hidden" name="m_code" value="${m_code}">
 						<tr>
 							<td><a class="move" href='<c:out value="${list.m_code}"/>'>
-								<img src="../../resources/img/${list.title}.jpg">
+									<img src="../../resources/img/${list.title}.jpg">
 							</a></td>
 							<td><c:out value="${list.title}"></c:out></td>
 							<td><c:out value="${list.genres}"></c:out></td>
@@ -82,12 +99,10 @@
 					</c:forEach>
 				</table>
 			</c:if>
-			
+
 			<!--  게시물 x -->
 			<c:if test="${listCheck == 'empty' }">
-				<div class="table_empty">
-					등록된 영화가 없습니다.
-				</div>
+				<div class="table_empty">등록된 영화가 없습니다.</div>
 			</c:if>
 		</div>
 
@@ -157,17 +172,34 @@
 
 			searchForm.submit();
 		});
-		
+
 		/* 영화 상세 페이지 이동 */
-		$(".move").on("click", function(e) {
+		$(".move")
+				.on(
+						"click",
+						function(e) {
+
+							e.preventDefault();
+
+							moveForm
+									.append("<input type='hidden' name='m_code' value='"
+											+ $(this).attr("href") + "'>");
+							moveForm.attr("action", "/movie/movieDetail");
+							moveForm.submit();
+							moveForm.find("input[name='m_code']").remove();
+						});
+		
+		let genreMoveForm = $('#genreForm');
+		/* 영화 장르 목록 이동 */
+		$(".genre_move").on("click", function(e) {
 			
 			e.preventDefault();
 			
-			moveForm.append("<input type='hidden' name='m_code' value='"+ $(this).attr("href") + "'>");
-			moveForm.attr("action", "/movie/movieDetail");
-			moveForm.submit();
-			moveForm.find("input[name='m_code']").remove();
+			genreMoveForm.append("<input type='hidden' name='genre' value='" + $(this).attr("href") + "'>");
+			genreMoveForm.submit();
+			genreMoveForm.find("input[name='genre']").remove();
 		});
+		
 	</script>
 
 	<script type="text/javascript">

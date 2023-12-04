@@ -30,21 +30,23 @@ public class AdminController {
 
 	// 회원리스트 페이지로 이동
 	@GetMapping("/memberList")
-	public void memberListGET(Model model) throws Exception {
+	public String memberListGET(Model model) throws Exception {
 		log.info("회원리스트 페이지 진입");
 
 		model.addAttribute("memberList", adminService.memberList());
 		log.info("memberList : " + adminService.memberList());
+		return "/admin/memberList";
 	}
 
 	// 회원 상세 정보 페이지로 이동
 	@GetMapping("/memberDetail")
-	public void memberDetailGET(String id, Model model) throws Exception {
+	public String memberDetailGET(String id, Model model) throws Exception {
 		log.info("회원 상세 정보 페이지 진입");
 
 		log.info("선택한 회원 아이디 : " + id);
 
 		model.addAttribute("info", adminService.memberDetail(id));
+		return "/admin/memberDetail";
 	}
 
 	// 회원정보 수정하기
@@ -73,6 +75,7 @@ public class AdminController {
 		log.info("수정 성공");
 		return "redirect:/admin/memberList";
 	}
+
 
 	// 리뷰 리스트 페이지로 이동
 	@GetMapping("/reviewList")
@@ -106,4 +109,5 @@ public class AdminController {
 
 		return "redirect:/admin/reviewList";
 	}
+
 }
