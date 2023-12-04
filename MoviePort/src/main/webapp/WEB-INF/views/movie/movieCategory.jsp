@@ -11,6 +11,7 @@
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
 </head>
+<!-- 커밋 하기 위한 주석 -->
 <body>
 	<h1>메인페이지</h1>
 	<ul>
