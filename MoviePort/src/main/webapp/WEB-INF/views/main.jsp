@@ -195,9 +195,11 @@
 			
 			e.preventDefault();
 			
-			genreMoveForm.append("<input type='hidden' name='genre' value='" + $(this).attr("href") + "'>");
-			genreMoveForm.submit();
-			genreMoveForm.find("input[name='genre']").remove();
+			moveForm.append("<input type='hidden' name='m_code' value='"+ $(this).attr("href") + "'>");
+			moveForm.attr("action", "/movie/movieDetail");
+			moveForm.submit();
+			moveForm.find("input[name='m_code']").remove();
+
 		});
 		
 	</script>
