@@ -37,10 +37,30 @@ public class MypageMapperTests {
 //	}
 	
 	// 내가 작성한 리뷰 리스트 불러오기
+//	@Test
+//	public void getMyReviewList() {
+//		String id = "aaaa";
+//		
+//		mypageMapper.getMyReviewList(id);
+//	}
+	
+	// 리뷰 상세
+//	@Test
+//	public void getMyReviewListDetail() {
+//		int reviewid = 4;
+//		
+//		ReviewVO review = mypageMapper.getMyReviewListDetail(reviewid);
+//		
+//		System.out.println("review : " + review);
+//	}
+	
+	
+	// 리뷰 삭제
 	@Test
-	public void getMyReviewList() {
-		String id = "aaaa";
+	public void deleteReview() throws Exception {
+		ReviewVO review = new ReviewVO();
+		review.setReviewid(6);
 		
-		mypageMapper.getMyReviewList(id);
+		mypageMapper.deleteReview(review);
 	}
 }

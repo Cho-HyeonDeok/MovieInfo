@@ -25,7 +25,7 @@ public interface MovieMapper {
 	public void insertReview(ReviewVO review);
 
 	// 리뷰 존재 체크
-	public int checkReview(ReviewVO review);
+	public Integer checkReview(ReviewVO review);
 	
 	/* 영화 평점 */
 	public double movieGetRate(int m_code);

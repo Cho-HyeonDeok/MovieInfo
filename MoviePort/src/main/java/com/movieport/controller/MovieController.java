@@ -2,16 +2,12 @@ package com.movieport.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -96,17 +92,19 @@ public class MovieController {
 
 	}
 
-	// 리뷰 체크(존재 : 1, 존재X : 0) 및 리뷰 등록
+	// 리뷰 체크(0:존재X, 1:존재) 및 리뷰 등록
 	@PostMapping("/movie/insertReview")
 	public String insertReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
 		log.info("리뷰 체크 동작");
 
-		if (movieService.checkReview(review) != 0) {
+		if (movieService.checkReview(review) != "0") {
+			log.info("체크 결과 : " + movieService.checkReview(review));
 			log.info("이미 존재");
 			
 			rttr.addFlashAttribute("msg", "회원님이 작성한 리뷰가 이미 존재합니다.");
 			return "redirect:/movie/movieDetail?m_code=" + review.getM_code();
 		} else {
+			log.info("체크 결과 : " + movieService.checkReview(review));
 			log.info("리뷰 등록 동작");
 
 			movieService.insertReview(review);

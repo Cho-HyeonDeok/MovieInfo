@@ -22,7 +22,7 @@ public interface MovieService {
 	public void insertReview(ReviewVO review) throws Exception;
 
 	// 리뷰 존재 체크
-	public int checkReview(ReviewVO review) throws Exception;
+	public String checkReview(ReviewVO review) throws Exception;
 
 	/* 높은 평점순 정렬 */
 	public List<MovieVO> sortMovieTotalrate(Criteria cri) throws Exception;
