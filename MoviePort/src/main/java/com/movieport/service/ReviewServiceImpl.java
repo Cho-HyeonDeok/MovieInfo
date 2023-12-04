@@ -14,8 +14,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	// 리뷰 등록
 	@Override
-	public int insertReview(ReviewVO review) throws Exception {
-		int result = reviewMapper.insertReview(review);
-		return result;
+	public void insertReview(ReviewVO review) throws Exception {
+		reviewMapper.insertReview(review);
 	}
 }

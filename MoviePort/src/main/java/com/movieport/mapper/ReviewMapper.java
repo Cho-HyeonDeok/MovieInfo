@@ -4,5 +4,5 @@ import com.movieport.model.ReviewVO;
 
 public interface ReviewMapper {
 	// 리뷰 등록
-	public int insertReview(ReviewVO review);
+	public void insertReview(ReviewVO review);
 }

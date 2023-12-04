@@ -14,4 +14,6 @@ public interface MypageService {
 
 	// 회원탈퇴
 	public void deleteMember(MemberVO member) throws Exception;
+	
+
 }
