@@ -26,18 +26,18 @@
 		]]>
 
 	</select>
-	
+
 	<!-- 영화 수 -->
 	<select id="movieGetTotal" resultType="int">
-	
+
 		select count(*) from movie
-		
+
 		<if test="keyword != null">
 			where title like '%' || #{keyword} || '%'
 		</if>
-	
+
 	</select>
-	
+
 	<!-- 영화 리스트 -->
 	<select id="moviesGetGenreList"
 		resultType="com.movieport.model.MovieVO">
@@ -53,7 +53,7 @@
 		<if test="keyword != null">
 			title like '%'||#{keyword}||'%' and
 		</if>
-		
+
 		<if test="genre != null">
 			genres like '%' || #{genre} || '%' and
 		</if>
@@ -65,59 +65,72 @@
 		]]>
 
 	</select>
-	
+
 	<!-- 장르별 영화 수 -->
 	<select id="movieGetGenreTotal" resultType="int">
-	
+
 		select count(*) from movie
-		where 
+		where
 		<if test="genre != null">
 			genres like '%' || #{genre} || '%'
 		</if>
 		<if test="keyword != null">
 			and title like '%' || #{keyword} || '%'
 		</if>
-		
-	
+
+
 	</select>
-	
+
 	<!-- 영화 상세 -->
-	<select id="movieGetDetail" resultType="com.movieport.model.MovieVO">
+	<select id="movieGetDetail"
+		resultType="com.movieport.model.MovieVO">
 		select * from movie where m_code = #{m_code}
 	</select>
-	
-	<!-- 영화코드, 영화이름 불러오기 -->
-	<select id="movieGetCodeTitle" >
-		select m_code, title from movie where m_code = #{m_code}
-	</select>
-	
+
+
 	<!-- 영화 평점 -->
 	<select id="movieGetRate" resultType="double">
-		select totalrate from movie where m_code = #{m_code}
+		select totalrate from movie
+		where m_code = #{m_code}
 	</select>
-	
+
 	<!-- 영화 총 평점 인원 수 -->
 	<select id="movieGetRateCount" resultType="int">
-		select rate_count from movie where m_code = #{m_code}
+		select rate_count from
+		movie where m_code = #{m_code}
 	</select>
-	
+
 	<!-- 영화 평점 반영 -->
 	<select id="movieSetRate">
 		update movie
 		set totalrate = #{totalrate}
-		where m_code = #{m_code}
+		where m_code
+		= #{m_code}
 	</select>
-	
+
 	<!-- 영화 총 평점 인원 수 반영 -->
 	<select id="movieSetRateCount">
 		update movie
 		set rate_count = #{rate_count}
-		where m_code = #{m_code}
+		where
+		m_code = #{m_code}
 	</select>
-	
-	
-	
-	
-	
-	
+
+	<!-- 리뷰 리스트 불러오기 -->
+	<select id="getReviewList"
+		resultType="com.movieport.model.ReviewVO">
+		select * from review where m_code = #{m_code}
+	</select>
+
+	<!-- 리뷰등록 -->
+	<insert id="insertReview">
+		insert into review(id, m_code, title, rate, comments)
+		values(#{id}, #{m_code}, #{title}, #{rate}, #{comments})
+	</insert>
+
+	<!-- 리뷰 존재 체크 -->
+	<select id="checkReview" resultType="int">
+		select reviewid from review
+		where id = #{id} and m_code = #{m_code}
+	</select>
 </mapper>

@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 import com.movieport.service.MypageService;
 
 @Controller
@@ -155,5 +157,65 @@ public class MypageController {
 			model.addAttribute("info", mypageService.memberInfo(member.getId()));
 			return "/mypage/resign";
 		}
+	}
+
+	// 나의 리뷰 목록 페이지로 이동 및 출력
+	@GetMapping("/reviews")
+	public void myReviewsGET(HttpSession session, Model model, MemberVO member) throws Exception {
+		log.info("나의 리뷰 목록 페이지 진입");
+
+		member = (MemberVO) session.getAttribute("member");
+		log.info("id : " + member.getId());
+
+		model.addAttribute("reviews", mypageService.getMyReviewList(member.getId()));
+	}
+
+	// 나의 리뷰 상세 페이지로 이동
+	@GetMapping("/reviewsDetail")
+	public void myReviewsDetailGET(Model model, int reviewid) throws Exception {
+		log.info("나의 리뷰 상세 페이지 진입");
+
+		model.addAttribute("detail", mypageService.getMyReviewListDetail(reviewid));
+		log.info("reviewid : " + mypageService.getMyReviewListDetail(reviewid));
+	}
+
+	// 리뷰 수정
+	@PostMapping("/updateReview")
+	public String updateReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
+		log.info("리뷰 수정 동작");
+
+		Double rate = review.getRate();
+		String comments = review.getComments();
+
+		log.info("입력한 평점 : " + rate);
+		log.info("입력한 내용 : " + comments);
+
+		int result = mypageService.updateReview(review);
+		log.info("result : " + result);
+
+		if (result != 1) { // 리뷰 업데이트 실패시
+			log.info("수정 실패");
+			rttr.addFlashAttribute("msg", "리뷰 수정에 실패하였습니다.");
+			return "redirect:/mypage/reviews";
+		}
+
+		log.info("수정 성공");
+		rttr.addFlashAttribute("msg", "리뷰가 수정되었습니다.");
+		return "redirect:/mypage/reviews";
+	}
+
+	// 리뷰 삭제
+	@PostMapping("/deleteReview")
+	public String deleteReviewPOST(ReviewVO review, RedirectAttributes rttr) throws Exception {
+		log.info("리뷰 삭제 동작");
+
+		int reviewid = review.getReviewid();
+		log.info("삭제할 reviewid : " + reviewid);
+
+		mypageService.deleteReview(review);
+		rttr.addFlashAttribute("msg", "리뷰가 삭제되었습니다.");
+		log.info("삭제 성공");
+
+		return "redirect:/mypage/reviews";
 	}
 }
