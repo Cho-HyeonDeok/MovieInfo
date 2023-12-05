@@ -9,6 +9,9 @@ public class ReviewVO {
 	// 회원아이디
 	private String id;
 
+	// 영화제목
+	private String title;
+
 	// 영화코드
 	private String m_code;
 
@@ -41,6 +44,14 @@ public class ReviewVO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getM_code() {
@@ -93,8 +104,9 @@ public class ReviewVO {
 
 	@Override
 	public String toString() {
-		return "ReviewVO [reviewid=" + reviewid + ", id=" + id + ", m_code=" + m_code + ", comments=" + comments
-				+ ", rate=" + rate + ", blind=" + blind + ", spoiler=" + spoiler + ", writedate=" + writedate + "]";
+		return "ReviewVO [reviewid=" + reviewid + ", id=" + id + ", title=" + title + ", m_code=" + m_code
+				+ ", comments=" + comments + ", rate=" + rate + ", blind=" + blind + ", spoiler=" + spoiler
+				+ ", writedate=" + writedate + "]";
 	}
 
 }

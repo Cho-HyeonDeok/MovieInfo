@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.movieport.mapper.AdminMapper;
 import com.movieport.model.MemberVO;
+import com.movieport.model.ReviewVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-	
+
 	@Autowired
 	AdminMapper adminMapper;
 
@@ -29,13 +30,27 @@ public class AdminServiceImpl implements AdminService {
 	// 회원정보 수정하기
 	@Override
 	public int memberInfoUpdate(MemberVO member) throws Exception {
-		int result = 0;
+		int result = adminMapper.memberInfoUpdate(member);
+		System.out.println("result : " + result);
 
-		try {
-			result = adminMapper.memberInfoUpdate(member);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		return result;
+	}
+
+	// 리뷰 리스트 불러오기
+	@Override
+	public List<ReviewVO> getReviewList() throws Exception {
+		return adminMapper.getReviewList();
+	}
+
+	// 리뷰 상세
+	@Override
+	public ReviewVO getReviewListDetail(int reviewid) throws Exception {
+		return adminMapper.getReviewListDetail(reviewid);
+	}
+
+	// 리뷰 삭제
+	@Override
+	public void deleteReview(ReviewVO review) throws Exception {
+		adminMapper.deleteReview(review);
 	}
 }

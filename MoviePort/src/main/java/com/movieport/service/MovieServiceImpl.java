@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
 import com.movieport.mapper.MovieMapper;
 import com.movieport.model.Criteria;
 import com.movieport.model.MovieVO;
+import com.movieport.model.ReviewVO;
 
 @Service
 public class MovieServiceImpl implements MovieService {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(MovieServiceImpl.class);
 
 	@Autowired
@@ -23,7 +24,7 @@ public class MovieServiceImpl implements MovieService {
 	public List<MovieVO> movieGetList(Criteria cri) throws Exception {
 		return movieMapper.moviesGetList(cri);
 	}
-	
+
 	/* 영화 총 개수 */
 	@Override
 	public int movieGetTotal(Criteria cri) throws Exception {
@@ -38,18 +39,12 @@ public class MovieServiceImpl implements MovieService {
 		return movieMapper.movieGetDetail(m_code);
 	}
 
-	// 영화코드, 영화제목 불러오기
-	@Override
-	public MovieVO movieGetCodeTitle(String m_code) throws Exception {
-		return null;
-	}
-
 	/* 영화 평점 */
 	@Override
 	public double movieGetRate(int m_code) throws Exception {
 		return movieMapper.movieGetRate(m_code);
 	}
-	
+
 	/* 영화 총 평점 인원 수 */
 	@Override
 	public int movieGetRateCount(int m_code) throws Exception {
@@ -61,7 +56,7 @@ public class MovieServiceImpl implements MovieService {
 	public void movieSetRate(int m_code) throws Exception {
 		movieMapper.movieSetRate(m_code);
 	}
-	
+
 	/* 영화 총 평점 인원 수 반영 */
 	@Override
 	public void movieSetRateCount(int m_code) throws Exception {
@@ -80,8 +75,27 @@ public class MovieServiceImpl implements MovieService {
 		return movieMapper.movieGetGenreTotal(cri);
 	}
 
-	
-	
-	
-	
+	// 리뷰 리스트 불러오기
+	@Override
+	public List<ReviewVO> getReviewList(int m_code) throws Exception {
+		return movieMapper.getReviewList(m_code);
+	}
+
+	// 리뷰 등록
+	@Override
+	public void insertReview(ReviewVO review) throws Exception {
+		movieMapper.insertReview(review);
+	}
+
+	// 리뷰 존재 체크
+	@Override
+	public String checkReview(ReviewVO review) throws Exception {
+		Integer result = movieMapper.checkReview(review);
+		if (result == null) {
+			return "0";	// 리뷰 존재X
+		} else {
+			return "1";	// 리뷰 존재
+		}
+	}
+
 }
