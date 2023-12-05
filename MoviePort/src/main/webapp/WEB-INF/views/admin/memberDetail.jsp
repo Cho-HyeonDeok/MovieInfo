@@ -12,8 +12,10 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>회원상세정보</h1>
-	<br>
+	<%@ include file="admin_header.jsp"%>
+	<hr>
+	<h1 style="color: black;">회원상세정보</h1>
+
 	<form id="memberInfo" method="post">
 		<div>
 			<label>아이디</label>
@@ -60,25 +62,27 @@
 				readonly="readonly">
 		</div>
 
-		<div>
+		<%-- <div>
 			<label>프로필</label>
 		</div>
 		<div>
 			<input type="text" value="${info.image}">
-		</div>
+		</div> --%>
 
 		<div>
 			<label>관리자권한(0:일반회원, 1:관리자)</label>
 		</div>
 		<div>
-			<input type="text" name="admin" value="${info.admin}" id="admin" placeholder="0 또는 1 입력">
+			<input type="text" name="admin" value="${info.admin}" id="admin"
+				placeholder="0 또는 1 입력">
 		</div>
 
 		<div>
 			<label>차단유무(0:차단X, 1:차단O)</label>
 		</div>
 		<div>
-			<input type="text" name="block" value="${info.block}" id="block" placeholder="0 또는 1 입력">
+			<input type="text" name="block" value="${info.block}" id="block"
+				placeholder="0 또는 1 입력">
 		</div>
 	</form>
 
