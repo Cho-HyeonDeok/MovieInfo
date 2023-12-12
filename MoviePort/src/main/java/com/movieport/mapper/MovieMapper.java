@@ -3,6 +3,7 @@ package com.movieport.mapper;
 import java.util.List;
 
 import com.movieport.model.Criteria;
+import com.movieport.model.MemberVO;
 import com.movieport.model.MovieVO;
 import com.movieport.model.ReviewVO;
 
@@ -29,6 +30,12 @@ public interface MovieMapper {
 	/* 영화 총 평점 인원 수 반영 */
 	public void movieSetRateCount(int m_code);
 
+	/* 평점순으로 영화 정렬 */
+	public List<MovieVO> sortMovieTotalrate(Criteria cri);
+
+	/* 최신순으로 영화 정렬 */
+	public List<MovieVO> latestMovie(Criteria cri);
+
 	/* 장르별 영화 목록 */
 	public List<MovieVO> moviesGetGenreList(Criteria cri);
 
@@ -43,4 +50,6 @@ public interface MovieMapper {
 
 	// 리뷰 존재 체크
 	public Integer checkReview(ReviewVO review);
+
+	
 }

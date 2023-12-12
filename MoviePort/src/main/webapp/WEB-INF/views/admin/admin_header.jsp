@@ -65,7 +65,7 @@
 			<div class="row justify-content-center text-center">
 				<div class="col-md-7">
 					<h1 class="heading gsap-reveal-hero mb-3">
-						<strong>MoviePort<span class="text-primary">.</span></strong>
+						<strong>AdminPort<span class="text-primary">.</span></strong>
 					</h1>
 					<h2 class="subheading gsap-reveal-hero mb-4">
 						All of admin Information in here.

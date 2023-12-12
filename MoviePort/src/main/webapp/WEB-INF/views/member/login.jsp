@@ -1,74 +1,251 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html>
-<html>
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- /*
+* Template Name: Minimal
+* Template Author: Untree.co
+* Author URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Untree.co">
+<link rel="shortcut icon" href="../resources/assets/movieIcon.png">
+<!--아이콘 출처 
+  <a href="https://www.flaticon.com/kr/free-icons/" title="영화 아이콘">영화 아이콘  제작자: Good Ware - Flaticon</a> -->
 
-<link rel="stylesheet" href="/resources/css/member/login.css">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="../resources/assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../resources/assets/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="../resources/assets/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="../resources/assets/css/jquery.fancybox.min.css">
+<link rel="stylesheet"
+	href="../resources/assets/fonts/icomoon/style.css">
+<link rel="stylesheet"
+	href="../resources/assets/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="../resources/assets/css/aos.css">
+<link rel="stylesheet" href="../resources/assets/css/style.css">
+
+<title>MoviePort</title>
+
+<link rel="stylesheet" href="/resources/css/member/join.css">
 <script src="https://code.jquery.com/jquery-3.4.1.js"
-   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-   crossorigin="anonymous"></script>
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous"></script>
 </head>
-<body>
 
-   <div class="wrapper">
+<body data-spy="scroll" data-target=".site-navbar-target"
+	data-offset="100">
 
-      <div class="wrap">
-         <form id="login_form" method="post">
-            <div class="logo_wrap">
-               <span>Book Mall</span>
-            </div>
-            <div class="login_wrap">
-               <div class="id_wrap">
-                  <div class="id_input_box">
-                     <input class="id_input" name="id">
-                  </div>
-               </div>
-               <div class="pw_wrap">
-                  <div class="pw_input_box">
-                     <input type="password" class="pw_iput" name="pwd">
-                  </div>
-               </div>
+	<div class="lines-wrap">
+		<div class="lines-inner">
+			<div class="lines"></div>
+		</div>
+	</div>
+	<!-- END lines -->
 
-               <c:if test="${result == 0 }">
-                  <div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-               </c:if>
-               
-               <div id="search_wrap">
-                <a href="/member/findIdCheck">아이디 찾기</a>
-				<a href="/member/findPwdCheck">비밀번호 찾기</a>
-               </div>
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
 
-               <div class="login_button_wrap">
-                  <input type="button" class="login_button" value="로그인">
-                  	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=3875a342f69d43d326a4d04f51644790&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code">
-					<!-- REST_API키 및 REDIRECT_URi는 본인걸로 수정하세요 -->
-					<!-- 저는 redirect_uri을 http://localhost:8080/member/kakaoLogin로 했습니다. -->
-					<!-- 본인걸로 수정 시 띄어쓰기 절대 하지 마세요. 오류납니다. -->
+	<nav class="site-nav dark mb-5 site-navbar-target">
+		<div class="container">
+			<div class="site-navigation">
+				<a href="/main" class="logo m-0">MoviePort<span
+					class="text-primary">.</span></a>
+
+				<div class="site-navigation-login">
+					<!-- 로그인 안했을때 -->
+					<c:if test="${member == null }">
+						<span><a href="/member/login">로그인&nbsp</a>/ <a
+							href="/member/join">회원가입</a></span>
+					</c:if>
+
+					<!-- 로그인 했을때 -->
+					<c:if test="${member != null }">
+						<c:choose>
+							<c:when test="${member.admin == '1'}">
+								<span><a href="/admin/adminMain">${member.nickname}(#${member.id})님&nbsp</a></span>/
+							</c:when>
+							<c:otherwise>
+								<span><a href="/mypage/mypageMain">${member.nickname}(#${member.id})님&nbsp</a></span>/
+							</c:otherwise>
+						</c:choose>
+						<span><a href="/member/logout.do">로그아웃</a></span>
+					</c:if>
+				</div>
+
+				<ul
+					class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
+
+					<li><a href="#home-section" class="nav-link active">메인으로</a></li>
+					<!-- 로그인 안했을때 -->
+					<c:if test="${member == null }">
+						<li><a href="/member/login">로그인</a></li>
+						<li><a href="/member/join">회원가입</a></li>
+					</c:if>
+					<!-- <li><a href="#portfolio-section" class="nav-link">MyPage</a></li>  -->
+					<!-- 로그인 했을때 -->
+					<c:if test="${member != null }">
+						<li><a href="/member/logout.do">로그아웃</a></li>
+						<li class="has-children"><a class="nav-link">마이페이지</a>
+							<ul class="dropdown">
+								<li><a href="/mypage/mypageMain" class="nav-link">내 정보</a></li>
+								<li><a href="/mypage/pwdUpdate" class="nav-link">비밀번호
+										변경</a></li>
+								<li><a href="/mypage/reviews" class="nav-link">나의 리뷰 목록</a></li>
+								<li><a href="/mypage/likes" class="nav-link">좋아요 표시한 목록</a></li>
+								<li><a href="/mypage/resign" class="nav-link">회원탈퇴</a></li>
+							</ul></li>
+					</c:if>
+				</ul>
+
+				<a href="#"
+					class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-inline-block"
+					data-toggle="collapse" data-target="#main-navbar"> <span></span>
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="untree_co-section pb-0" id="home-section">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-md-7">
+					<h1 class="heading gsap-reveal-hero mb-3"
+						style="margin-bottom: 30px;">
+						<strong>MoviePort<span class="text-primary">.</span></strong>
+					</h1>
+					<!-- <h2 class="subheading gsap-reveal-hero mb-4">
+						All of Reviews in here</strong>.
+					</h2> -->
+				</div>
+
+				<div id="h_H" class="col-md-10 col-lg-12">
+					<div class="h_L">
+						<form id="genreForm" action="/movie/movieCategory" method="get">
+							<ul class="h_menu">
+								<li><a class="genre_move" href="액션" id="bidulgi">액션</a></li>
+								<li><a class="genre_move" href="로맨스" id="bidulgi">로맨스</a></li>
+								<li><a class="genre_move" href="코미디" id="bidulgi">코미디</a></li>
+								<li><a class="genre_move" href="스릴러" id="bidulgi">스릴러</a></li>
+								<li><a class="genre_move" href="공포" id="bidulgi">호러</a></li>
+								<li><a class="genre_move" href="SF" id="bidulgi">SF</a></li>
+								<li><a class="genre_move" href="애니메이션" id="bidulgi">애니</a></li>
+								<li class="bar"></li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 헤더 끝 -->
+
+	<div class="untree_co-section" id="contact-section">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-4 col-sm-6 col-md-6 col-lg-6">
+					<form id="login_form" method="post">
+						<div class="row justify-content-center text-center"
+							style="padding-bottom: 15px;">
+							<div class="col-8 form-group">
+								<input id="id_input" name="id" class="form-control"
+									placeholder="Id">
+							</div>
+						</div>
+						<div class="row justify-content-center text-center" style="padding-bottom: 25px;">
+							<div class="col-8 form-group">
+								<input id="pw_input" type="password" name="pwd"
+									class="form-control" placeholder="Password">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span> <a href="/member/findIdCheck" style="color: #000;">아이디 찾기</a>
+								</span>|<span> <a href="/member/findPwdCheck" style="color: #000;">비밀번호 찾기</a>
+								</span>|<span> <a href="/member/join" style="color: #000;">회원가입</a>
+								</span>
+							</div>
+						</div>
+
+						<div class="row justify-content-center text-center"
+							style="padding-bottom: 15px;">
+							<!--가입 및 취소 버튼-->
+							<div class="col-12 form-group">
+								<input type="button" id="login_button" class="btn btn-black"
+									value="   로그인   ">
+									
+							<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=3875a342f69d43d326a4d04f51644790&redirect_uri=http://localhost:8080/member/kakaoLogin&response_type=code">
+							<!-- REST_API키 및 REDIRECT_URi는 본인걸로 수정하세요 -->
+							<!-- 저는 redirect_uri을 http://localhost:8080/member/kakaoLogin로 했습니다. -->
+							<!-- 본인걸로 수정 시 띄어쓰기 절대 하지 마세요. 오류납니다. -->
 					
-						<img src="/resources/img/kakao.png" style="height:60px">
-					</a>
-               </div>
-            </div>
-         </form>
-      </div>
+								<img src="/resources/img/kakao.png">
+							</a>
+							</div>
 
-   </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-   <script>
-      /* 로그인 버튼 클릭 메서드 */
-      $(".login_button").click(function() {
-         //alert("로그인 버튼 작동");
-         /* 로그인 메서드 서버 요청 */
-         $("#login_form").attr("action", "/member/login.do");
-         $("#login_form").submit();
+	<%@ include file="../../views/footer.jsp"%>
 
-      });
-   </script>
+	<!-- 스크립트 -->
+	<script>
+		var msg = "${msg}";
 
+		if (msg != "") {
+			alert(msg);
+		}
+
+		/* 로그인 버튼 클릭 메서드 */
+		$("#login_button").click(function() {
+			//alert("로그인 버튼 작동");
+			/* 로그인 메서드 서버 요청 */
+			$("#login_form").attr("action", "/member/login.do");
+			$("#login_form").submit();
+
+		});
+	</script>
+	
+	<script>
+		let genreMoveForm = $('#genreForm');
+		/* 영화 장르 목록 이동 */
+		$(".genre_move").on(
+				"click",
+				function(e) {
+
+					e.preventDefault();
+
+					genreMoveForm
+							.append("<input type='hidden' name='genre' value='"
+									+ $(this).attr("href") + "'>");
+					genreMoveForm.submit();
+					genreMoveForm.find("input[name='genre']").remove();
+				});
+	</script>
 </body>
 </html>

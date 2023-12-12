@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 200;
+   
+}
+
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+
+
+.movie_font_set{
+  font-family:'IBMPlexSansKR-Regular';	
+  display: block;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-style: normal;
+	
+}
+.movie_font_detail{
+	font-family:'IBMPlexSansKR-Regular';	
+    letter-spacing: .1rem;
+	font-size: 16px;
+	display: block;
+	
+}
+
+.movie_detail_part{
+  display: block;
+  font-size: 16px;
+  letter-spacing: .1rem; 
+  
+  
+	
+}
+
+#movie_font_another{
+	font-family:'IBMPlexSansKR-Regular';	
+	letter-spacing: .1rem;
+	font-size: 16px;
+	display: block;
+	font-size: 14px;
+	text-transform: uppercase;
+	
+	
+}
+
+#movie_content{
+	font-family: 'Pretendard-Regular';
+	display: block;
+	font-size: 16px;
+	font-style: normal;
+	color: #3a3a3a;
+	
+	
+}
+
+
+
+#movie_poster_1{
+	width: 65%;
+	height: 65%;
+	margin-left: 20%;
+	
+}
+
+.movie_review_font{
+	border-bottom: 1px solid black;
+	padding-bottom: 12px;	
+}
+#movie_review_font_title{
+	font-size: 28px;
+	
+	margin-left: 5%;
+
+	
+	
+	
+}
+
+.line_box{
+	border: 1px solid #000;
+	border-radius: 50px;
+	
+}
+
+
+<!--평점-->
+
+.wrap {
+  
+  height: 100vh;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.rating {
+  margin-left: 5%;
+  float: none;
+  width: 200px;
+  display: flex;
+}
+.rating__input {
+  display: none;
+}
+.rating__label {
+  width: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.rating__label .star-icon {
+  width: 20px;
+  height: 40px;
+  display: block;
+  position: relative;
+  left: 0;
+  
+  
+  background-image: url('https://i.ibb.co/WfMqyBS/star-em.png');
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+.rating__label .star-icon.filled {
+  background-image: url('https://i.ibb.co/1nchZWy/star-fill.png');
+}
+.rating__label--full .star-icon {
+  background-position: right;
+}
+.rating__label--half .star-icon {
+  background-position: left;
+}
+.rating.readonly .star-icon {
+  opacity: 0.7;
+  cursor: default;
+}
+
+
+#btn-white{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 0px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  font-family:'IBMPlexSansKR-Regular';
+  background: #fff;
+  border: 1px solid black;
+  color: #000;
+  margin-left: 70%;
+  }
+  
+
+<!-- 로그인 전 css-->
+
+#review_before_1{
+margin-top: 10px;	
+padding-bottom: 50px;}
+
+.review_before_2{
+padding-left:10px;	
+margin-top: 10px;
+color: #304681;	
+}
+a :hover {
+	color: #6b8ac5;
+}
+
+
+<!-- 로그인 후 css-->
+
+.comments_text_1{
+		
+}
+
+<!-- 영화 코멘트-->
+#rating_font_1{
+	font-family: 'IBMPlexSansKR-Regular';
+	font-size: 7pt;
+	color: #494949;
+	margin-left: 4%;
+}
+
+#comment_font_1{
+	 font-family: 'Pretendard-Regular';
+	 font-size: 12pt;
+	 margin-left: 4%;
+	
+}
+#comment_font_2{
+	 font-family: 'Pretendard-Regular';
+	 font-size: 9pt;
+	 color: #a0a0a0;
+	  margin-left: 4%;
+}	
+
+#comment_font_3{
+	 font-family: 'IBMPlexSansKR-Regular';
+	 font-size: 14pt;
+	 color: #000;
+	 padding-top: 50px;
+}	
+
+
+
+<!--아이콘-->
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 26;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
