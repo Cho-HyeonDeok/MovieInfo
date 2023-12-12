@@ -148,13 +148,14 @@ public class MemberController {
 				return "redirect:/main";
 			} else {
 				rttr.addFlashAttribute("result", 0);
+				rttr.addFlashAttribute("msg", "비밀번호가 일치하지 않습니다.");
 				return "redirect:/member/login";
 			}
 		} else { // 일치하는 아이디가 존재하지 않을 시(로그인 실패처리)
 			rttr.addFlashAttribute("result", 0);
+			rttr.addFlashAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			return "redirect:/member/login";
 		}
-
 	}
 
 	// 카카오 로그인
@@ -213,14 +214,14 @@ public class MemberController {
 
 	// 아이디 찾기
 	@PostMapping("/findIdCheck")
-	public String findIdPOST(Model model, MemberVO member) throws Exception {
+	public String findIdPOST(Model model, MemberVO member, RedirectAttributes rttr) throws Exception {
 		log.info("name : " + member.getName() + ", phone : " + member.getPhone());
 
 		if (memberService.findIdCheck(member) == 0) {
 			log.info("일치하는 아이디 없음");
-			model.addAttribute("msg", "일치하는 회원 정보가 없습니다.\\n회원성명과 핸드폰번호를 확인해주세요.");
+			rttr.addFlashAttribute("msg", "일치하는 회원 정보가 없습니다.\\n회원성명과 핸드폰번호를 확인해주세요.");
 
-			return "/member/findIdCheck";
+			return "redirect:/member/findIdCheck";
 		} else {
 			model.addAttribute("member", memberService.findId(member));
 			System.out.println("member : " + memberService.findId(member));
@@ -237,14 +238,14 @@ public class MemberController {
 
 	// 비밀번호 찾기(임시 비밀번호 이메일로 발송, 기존 비밀번호를 임시 비밀번호로 변경)
 	@PostMapping("/findPwdCheck")
-	public String findPwdCheckPOST(Model model, MemberVO member) throws Exception {
+	public String findPwdCheckPOST(Model model, MemberVO member, RedirectAttributes rttr) throws Exception {
 		log.info("id : " + member.getId() + ", email : " + member.getEmail());
 
 		if (memberService.findPwdCheck(member) == 0) {
 			log.info("일치하는 회원 정보 없음");
-			model.addAttribute("msg", "일치하는 회원 정보가 없습니다.\\n아이디와 이메일을 확인해주세요.");
+			rttr.addFlashAttribute("msg", "일치하는 회원 정보가 없습니다.\\n아이디와 이메일을 확인해주세요.");
 
-			return "/member/findPwdCheck";
+			return "redirect:/member/findPwdCheck";
 		} else {
 			// 임시 비밀번호(난수) 생성
 			Random random = new Random();

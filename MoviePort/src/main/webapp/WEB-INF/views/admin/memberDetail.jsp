@@ -14,81 +14,83 @@
 <body>
 	<%@ include file="admin_header.jsp"%>
 	<hr>
-	<h1 style="color: black;">회원상세정보</h1>
 
-	<form id="memberInfo" method="post">
-		<div>
-			<label>아이디</label>
-		</div>
-		<div>
-			<input type="text" name="id" value="${info.id}" readonly="readonly">
-		</div>
+	<h1 style="color: #000; text-align: center; padding-top: 30px;">회원상세정보</h1>
 
-		<div>
-			<label>비밀번호</label>
-		</div>
-		<div>
-			<input type="password" value="${info.pwd}" readonly="readonly">
-		</div>
 
-		<div>
-			<label>닉네임</label>
-		</div>
-		<div>
-			<input type="text" name="nickname" value="${info.nickname}"
-				id="nickname">
-		</div>
+	<div class="untree_co-section" id="contact-section">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-4 col-sm-4 col-md-4 col-lg-6">
+					<form id="memberInfo" method="post">
+						<div class="row justify-content-center text-center">
+							<div class="col-12 form-group" style="padding-bottom: 15px;">
+								<span>아이디</span> <input id="id_input" name="id"
+									class="form-control" value="${info.id}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>비밀번호</span> <input id="pw_input" type="password"
+									name="pwd" class="form-control" value="${info.pwd}"
+									readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>닉네임</span> <input id="nickname" class="form-control"
+									placeholder="Password Check" value="${info.nickname}">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>휴대폰 번호</span> <input id="user_input" name="name"
+									class="form-control" value="${info.phone}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span> 이메일</span> <input id="nick_input" name="nickname"
+									class="form-control" value="${info.email}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>가입일</span> <input id="phone_input" name="phone"
+									class="form-control"
+									value="<fmt:formatDate value="${info.indate}" pattern="yyyy-MM-dd" />"
+									readonly="readonly">
+							</div>
+						</div>
 
-		<div>
-			<label>휴대폰번호</label>
-		</div>
-		<div>
-			<input type="text" value="${info.phone}" readonly="readonly">
-		</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div id="email_box_css" class="col-12 form-group">
+								<span>관리자 권한(0:일반회원, 1:관리자)</span> <input type="text"
+									name="admin" value="${info.admin}" id="admin"
+									class="form-control" placeholder="0 또는 1 입력">
+							</div>
 
-		<div>
-			<label>이메일</label>
-		</div>
-		<div>
-			<input type="text" value="${info.email}" readonly="readonly">
-		</div>
+						</div>
 
-		<div>
-			<label>가입일</label>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>차단유무(0:차단X, 1:차단O)</span> <input type="text" name="block"
+									class="form-control" value="${info.block}" id="block"
+									placeholder="0 또는 1 입력">
+							</div>
+						</div>
+						<!-- ROW종료 -->
+					</form>
+				</div>
+			</div>
 		</div>
-		<div>
-			<input type="text"
-				value="<fmt:formatDate value="${info.indate}" pattern="yyyy-MM-dd" />"
-				readonly="readonly">
-		</div>
+	</div>
 
-		<%-- <div>
-			<label>프로필</label>
-		</div>
-		<div>
-			<input type="text" value="${info.image}">
-		</div> --%>
-
-		<div>
-			<label>관리자권한(0:일반회원, 1:관리자)</label>
-		</div>
-		<div>
-			<input type="text" name="admin" value="${info.admin}" id="admin"
-				placeholder="0 또는 1 입력">
-		</div>
-
-		<div>
-			<label>차단유무(0:차단X, 1:차단O)</label>
-		</div>
-		<div>
-			<input type="text" name="block" value="${info.block}" id="block"
-				placeholder="0 또는 1 입력">
-		</div>
-	</form>
-
-	<div>
-		<input type="button" id="update_button" value="수정">
-		<button type="button" onclick="location.href='/admin/memberList'">닫기</button>
+	<div class="justify-content-center text-center">
+		<input type="button" id="update_button" class="btn btn-black"
+			value="수정">
+		<button type="button" onclick="location.href='/admin/memberList'"
+			class="btn btn-white">닫기</button>
 	</div>
 
 	<script>

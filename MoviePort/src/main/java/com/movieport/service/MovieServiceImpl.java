@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.movieport.mapper.MovieMapper;
 import com.movieport.model.Criteria;
+import com.movieport.model.MemberVO;
 import com.movieport.model.MovieVO;
 import com.movieport.model.ReviewVO;
 
@@ -62,6 +63,18 @@ public class MovieServiceImpl implements MovieService {
 	public void movieSetRateCount(int m_code) throws Exception {
 		movieMapper.movieSetRateCount(m_code);
 	}
+	
+	/* 높은 평점순 정렬 */
+	@Override
+	public List<MovieVO> sortMovieTotalrate(Criteria cri) throws Exception {
+		return movieMapper.sortMovieTotalrate(cri);
+	};
+
+	/* 최신순으로 영화 정렬 */
+	@Override
+	public List<MovieVO> latestMovie(Criteria cri) throws Exception {
+		return movieMapper.latestMovie(cri);
+	};
 
 	/* 장르별 영화 리스트 */
 	@Override
@@ -92,10 +105,11 @@ public class MovieServiceImpl implements MovieService {
 	public String checkReview(ReviewVO review) throws Exception {
 		Integer result = movieMapper.checkReview(review);
 		if (result == null) {
-			return "0";	// 리뷰 존재X
+			return "0"; // 리뷰 존재X
 		} else {
-			return "1";	// 리뷰 존재
+			return "1"; // 리뷰 존재
 		}
 	}
 
+	
 }

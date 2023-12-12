@@ -12,66 +12,77 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>리뷰 상세</h1>
-	<br>
-	<form id="reviewdetail" method="post">
-		<div>
-			<label>리뷰번호</label>
-		</div>
-		<div>
-			<input type="text" name="reviewid" value="${detail.reviewid}"
-				readonly="readonly">
-		</div>
+	<%@ include file="admin_header.jsp"%>
+	<hr>
 
-		<div>
-			<label>아이디</label>
-		</div>
-		<div>
-			<input type="text" name="id" value="${detail.id}" readonly="readonly">
-		</div>
+	<h1 style="color: #000; text-align: center; padding-top: 30px;">리뷰상세정보</h1>
 
-		<div>
-			<label>영화코드</label>
-		</div>
-		<div>
-			<input type="text" name="m_code" value="${detail.m_code}" id="m_code"
-				readonly="readonly">
-		</div>
+	<div class="untree_co-section" id="contact-section">
+		<div class="container">
 
-		<div>
-			<label>영화제목</label>
-		</div>
-		<div>
-			<input type="text" value="${detail.title}" readonly="readonly">
-		</div>
 
-		<div>
-			<label>리뷰내용</label>
-		</div>
-		<div>
-			<input type="text" value="${detail.comments}" readonly="readonly">
-		</div>
+			<div class="row justify-content-center text-center">
+				<div class="col-4 col-sm-4 col-md-4 col-lg-6">
 
-		<div>
-			<label>평점</label>
-		</div>
-		<div>
-			<input type="text" value="${detail.rate}" readonly="readonly">
-		</div>
+					<form id="reviewdetail" method="post">
+						<div class="row justify-content-center text-center">
 
-		<div>
-			<label>가입일</label>
-		</div>
-		<div>
-			<input type="text"
-				value="<fmt:formatDate value="${detail.writedate}" pattern="yyyy-MM-dd" />"
-				readonly="readonly">
-		</div>
-	</form>
+							<div class="col-12 form-group" style="padding-bottom: 15px;">
+								<span>리뷰번호</span> <input type="text" class="form-control"
+									name="reviewid" value="${detail.reviewid}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>아이디</span> <input type="text" class="form-control"
+									name="id" value="${detail.id}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>영화코드</span> <input type="text" class="form-control"
+									name="m_code" value="${detail.m_code}" id="m_code"
+									readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>영화제목</span> <input type="text" class="form-control"
+									value="${detail.title}" readonly="readonly">
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>리뷰내용</span>
+								<textarea class="form-control" readonly="readonly">${detail.comments}</textarea>
+							</div>
+						</div>
+						<div class="row" style="padding-bottom: 15px;">
+							<div class="col-12 form-group">
+								<span>평점</span> <input type="text" class="form-control"
+									value="${detail.rate}" readonly="readonly">
+							</div>
+						</div>
 
-	<div>
-		<input type="button" id="delete_button" value="삭제">
-		<button type="button" onclick="location.href='/admin/reviewList'">닫기</button>
+						<div class="row" style="padding-bottom: 15px;">
+							<div id="email_box_css" class="col-12 form-group">
+								<span>등록일</span> <input type="text" class="form-control"
+									value="<fmt:formatDate value="${detail.writedate}" pattern="yyyy-MM-dd" />"
+									readonly="readonly">
+							</div>
+						</div>
+						<!-- ROW종료 -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="justify-content-center text-center">
+		<input type="button" id="delete_button" class="btn btn-black"
+			value="삭제">
+		<button type="button" class="btn btn-white"
+			onclick="location.href='/admin/reviewList'">닫기</button>
 	</div>
 
 	<script>

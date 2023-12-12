@@ -23,7 +23,7 @@
 }
 
 .work_button:link, .work_button:visited {
-	background-color: #5C89CC;
+	background-color: #7F8083;
 	color: #FFFFFF;
 	padding: 15px 25px;
 	text-align: center;
@@ -34,7 +34,9 @@
 }
 
 .work_button:hover, .work_button:active {
-	background-color: #3B557B;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #7F8083;
 }
 </style>
 </head>
@@ -45,8 +47,9 @@
 	<h1 class="welcome_text">관리자 페이지에 오신 것을 환영합니다.</h1>
 	<div class="work_button_wrap">
 		<a class="work_button" href="/admin/memberList">회원리스트</a> <a
-			class="work_button" href="/admin/movies">영화리스트</a> <a
-			class="work_button" href="/admin/reviewList">리뷰리스트</a>
+			class="work_button" href="/admin/movieList">영화리스트</a> <a
+			class="work_button" href="/admin/reviewList">리뷰리스트</a> <a
+			class="work_button" href="/admin/logout">로그아웃</a>
 	</div>
 </body>
 </html>
